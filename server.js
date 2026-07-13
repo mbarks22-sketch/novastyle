@@ -7,7 +7,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // 1. إنشاء قاعدة بيانات SQLite تلقائياً في نفس المجلد
-const db = new sqlite3.Database('./novastyle.db', (err) => {
+const db = new sqlite3.Database(process.env.NODE_ENV === 'production' ? '/data/novastyle.db' : './novastyle.db', (err) => {
     if (err) console.error(err.message);
     console.log('Connected to Nova Style database.');
 });
