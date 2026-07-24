@@ -1,0 +1,2033 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Style - المتجر الإلكتروني الشامل</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts (Cairo & Tajawal) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            50: '#fdfbf7',
+                            100: '#f7f0e3',
+                            200: '#eee0c5',
+                            300: '#e5cd98',
+                            400: '#d5b361',
+                            500: '#c59b27',
+                            600: '#ab811c',
+                            700: '#8c6518',
+                            800: '#725119',
+                            900: '#5e431a',
+                        },
+                        darknavy: '#0b1329',
+                        softblack: '#121212',
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        tajawal: ['Tajawal', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        h1, h2, h3, h4, .font-title {
+            font-family: 'Tajawal', sans-serif;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(16px);
+        }
+        .dir-ltr {
+            direction: ltr;
+        }
+        .dir-rtl {
+            direction: rtl;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 antialiased text-slate-800 selection:bg-gold-500 selection:text-white">
+
+    <div class="bg-gradient-to-r from-gray-950 via-darknavy to-gray-950 text-gold-300 text-xs md:text-sm py-2.5 px-4 shadow-sm border-b border-gold-500/20">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-2 sm:px-4">
+            <div class="hidden md:flex items-center gap-2 font-medium">
+                <i class="fa-solid fa-truck-fast text-gold-400"></i>
+                <span>توصيل سريع وسلس لجميع مدن ومناطق ليبيا (طرابلس، بنغازي، مصراتة، الزاوية، سبها)</span>
+            </div>
+            <div class="mx-auto md:mx-0 font-semibold tracking-wide flex items-center gap-2">
+                <span class="bg-gold-500/20 text-gold-300 border border-gold-500/40 px-2 py-0.5 rounded text-[11px] font-bold">Nova Style</span>
+                <span>تخفيضات موسمية مميزة • خصم 10% عند الشراء اليوم!</span>
+            </div>
+            <div class="hidden lg:flex items-center gap-4 text-xs text-gray-300">
+                <a href="tel:0916188886" class="hover:text-gold-400 transition flex items-center gap-1.5 font-bold">
+                    <i class="fa-solid fa-phone text-gold-500"></i> 0916188886
+                </a>
+                <span class="text-gray-600">|</span>
+                <span class="text-emerald-400 font-bold flex items-center gap-1"><i class="fa-solid fa-shield-halved"></i> دفع عند الاستلام وحوالات فورية</span>
+            </div>
+        </div>
+    </div>
+
+    <header class="sticky top-0 z-40 glass-header border-b border-slate-200 shadow-sm transition-all duration-300" id="mainHeader">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo & Mobile Menu Button -->
+                <div class="flex items-center gap-3">
+                    <button onclick="toggleMobileMenu()" class="lg:hidden text-2xl text-slate-700 hover:text-gold-600 focus:outline-none p-2 rounded-lg hover:bg-slate-100">
+                        <i class="fa-solid fa-bars-staggered"></i>
+                    </button>
+                    <a href="#" onclick="selectCategory('all')" class="flex items-center gap-3 group">
+                        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-slate-900 via-darknavy to-gold-600 text-white flex items-center justify-center font-black text-2xl shadow-lg group-hover:scale-105 transition-transform border border-gold-400/30">
+                            N
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-2xl font-black tracking-tight text-slate-900 group-hover:text-gold-600 transition-colors">Nova Style</span>
+                            <span class="text-[10px] tracking-widest uppercase text-slate-500 font-bold -mt-1">WOMEN • KIDS • ACC • HOME</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Live Search Bar -->
+                <div class="hidden md:flex flex-1 max-w-md mx-8 relative">
+                    <input type="text" id="searchInput" oninput="handleSearchInput()" placeholder="ابحثي عن فستان، ملابس أطفال، إكسسوارات أو أدوات منزلية..." 
+                           class="w-full bg-slate-100/90 border border-slate-200 rounded-full py-2.5 pr-11 pl-4 text-xs md:text-sm focus:outline-none focus:ring-2 focus:ring-gold-500 focus:bg-white transition-all shadow-inner">
+                    <button class="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-gold-600">
+                        <i class="fa-solid fa-magnifying-glass text-sm"></i>
+                    </button>
+                </div>
+
+                <!-- Interaction Actions (User Auth, Admin, Wishlist, Cart, WhatsApp) -->
+                <div class="flex items-center gap-2 sm:gap-4">
+                    
+                    <!-- Customer Auth Button -->
+                    <button onclick="openUserAuthModal()" id="userAuthBtn" class="p-2.5 text-slate-700 hover:text-gold-600 hover:bg-gold-50/80 rounded-full transition relative group" title="حسابي / تسجيل الدخول">
+                        <i class="fa-regular fa-user text-xl" id="userAuthIcon"></i>
+                        <span id="userAuthDot" class="hidden absolute top-1 right-1 w-2.5 h-2.5 bg-emerald-500 rounded-full ring-2 ring-white"></span>
+                        <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap shadow-md" id="userAuthTooltip">تسجيل الدخول</span>
+                    </button>
+
+                    <!-- Admin Auth Button -->
+                    <button onclick="openAdminModal()" class="p-2.5 text-slate-700 hover:text-gold-600 hover:bg-gold-50/80 rounded-full transition relative group" title="لوحة تحكم المتجر وقواعد البيانات">
+                        <i class="fa-solid fa-sliders text-xl"></i>
+                        <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap shadow-md">الإدارة والدعم</span>
+                    </button>
+
+                    <!-- Wishlist Button -->
+                    <button onclick="toggleWishlistDrawer()" class="relative p-2.5 text-slate-700 hover:text-gold-600 hover:bg-gold-50/80 rounded-full transition" title="المفضلة">
+                        <i class="fa-regular fa-heart text-xl"></i>
+                        <span id="wishlistCount" class="absolute -top-1 -right-1 bg-rose-500 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow">0</span>
+                    </button>
+
+                    <!-- Shopping Cart Button -->
+                    <button onclick="toggleCartDrawer()" class="relative p-2.5 text-slate-700 hover:text-gold-600 hover:bg-gold-50/80 rounded-full transition group" title="سلة التسوق">
+                        <i class="fa-solid fa-bag-shopping text-xl group-hover:scale-110 transition-transform"></i>
+                        <span id="cartCount" class="absolute -top-1 -right-1 bg-gold-600 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow">0</span>
+                    </button>
+
+                    <!-- Direct WhatsApp Button -->
+                    <a href="https://wa.me/218916188886" target="_blank" class="hidden sm:flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2.5 rounded-full text-xs font-bold shadow-md hover:shadow-lg transition">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>طلب مباشر</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="hidden lg:flex items-center justify-center gap-8 py-3 border-t border-slate-100 text-xs md:text-sm font-bold text-slate-700">
+                <button onclick="selectCategory('all')" class="nav-btn active hover:text-gold-600 transition py-1 border-b-2 border-gold-600 font-extrabold" data-cat="all">كل المنتجات</button>
+                <button onclick="selectCategory('women')" class="nav-btn hover:text-gold-600 transition py-1 border-b-2 border-transparent" data-cat="women">ملابس نسائية</button>
+                <button onclick="selectCategory('kids')" class="nav-btn hover:text-gold-600 transition py-1 border-b-2 border-transparent" data-cat="kids">ملابس أطفال</button>
+                <button onclick="selectCategory('acc')" class="nav-btn hover:text-gold-600 transition py-1 border-b-2 border-transparent" data-cat="acc">إكسسوارات وحقائب</button>
+                <button onclick="selectCategory('home')" class="nav-btn hover:text-gold-600 transition py-1 border-b-2 border-transparent" data-cat="home">أدوات منزلية</button>
+                <button onclick="selectCategory('shein')" class="nav-btn text-purple-600 hover:text-purple-700 transition py-1 border-b-2 border-transparent flex items-center gap-1 font-bold" data-cat="shein">
+                    <i class="fa-solid fa-calculator text-purple-500"></i> حاسبة طلبات شي إن 🔥
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <div id="mobileMenu" class="fixed inset-0 bg-slate-900/60 z-50 backdrop-blur-sm hidden transition-opacity">
+        <div class="bg-white w-4/5 max-w-xs h-full p-6 flex flex-col justify-between shadow-2xl overflow-y-auto">
+            <div>
+                <div class="flex items-center justify-between pb-6 border-b border-slate-100">
+                    <div class="flex items-center gap-2">
+                        <div class="w-9 h-9 rounded-xl bg-gold-600 text-white flex items-center justify-center font-bold text-lg">N</div>
+                        <span class="text-xl font-extrabold text-slate-900">Nova Style</span>
+                    </div>
+                    <button onclick="toggleMobileMenu()" class="text-slate-400 hover:text-slate-700 text-2xl">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="py-4 space-y-3 font-semibold text-slate-700 text-sm">
+                    <button onclick="selectCategory('all'); toggleMobileMenu();" class="block w-full text-right py-2 hover:text-gold-600">كل المنتجات</button>
+                    <button onclick="selectCategory('women'); toggleMobileMenu();" class="block w-full text-right py-2 hover:text-gold-600">ملابس نسائية أنيقة</button>
+                    <button onclick="selectCategory('kids'); toggleMobileMenu();" class="block w-full text-right py-2 hover:text-gold-600">أزياء ومستلزمات الأطفال</button>
+                    <button onclick="selectCategory('acc'); toggleMobileMenu();" class="block w-full text-right py-2 hover:text-gold-600">إكسسوارات وحقائب عصرية</button>
+                    <button onclick="selectCategory('home'); toggleMobileMenu();" class="block w-full text-right py-2 hover:text-gold-600">أدوات ومنظمات منزلية</button>
+                    <button onclick="selectCategory('shein'); toggleMobileMenu();" class="block w-full text-right py-2 text-purple-600 font-bold">حاسبة طلبات شي إن 🔥</button>
+                </div>
+            </div>
+            <div class="pt-6 border-t border-slate-100 text-xs text-slate-500 space-y-3">
+                <p class="flex items-center gap-2"><i class="fa-solid fa-phone text-gold-600"></i> 0916188886</p>
+                <p class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-gold-600"></i> طرابلس وبنغازي وكافة مدن ليبيا</p>
+                <a href="https://wa.me/218916188886" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-xl text-center font-bold block shadow">
+                    تواصل مباشر عبر الواتساب
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <section class="relative bg-gradient-to-r from-slate-950 via-darknavy to-slate-900 text-white overflow-hidden my-4 mx-2 md:mx-6 rounded-3xl shadow-2xl border border-slate-800">
+        <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center"></div>
+        <div class="relative max-w-7xl mx-auto px-6 py-12 md:py-20 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="max-w-xl text-center md:text-right">
+                <span class="inline-flex items-center gap-2 bg-gold-500/20 text-gold-300 border border-gold-500/40 text-xs px-3.5 py-1.5 rounded-full font-bold mb-4">
+                    ✨ عالم الموضة والمنزل العصري | Nova Style
+                </span>
+                <h1 class="text-3xl md:text-5xl font-extrabold leading-tight tracking-normal mb-4">
+                    كل ما تحتاجه عائلتك وبيتك في مكان واحد
+                </h1>
+                <p class="text-slate-300 text-xs md:text-sm leading-relaxed mb-8">
+                    تسوقي أحدث صيحات الملابس النسائية، أزياء الأطفال المريحة، الإكسسوارات الأنيقة، والأدوات المنزلية العصرية، بالإضافة إلى خدمة الوساطة والحساب التلقائي لطلبات شي إن (SHEIN).
+                </p>
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-4">
+                    <a href="#catalog" onclick="selectCategory('all')" class="bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-slate-950 font-black px-7 py-3 rounded-full shadow-lg hover:shadow-gold-500/30 transition transform hover:-translate-y-0.5 text-xs md:text-sm">
+                        تسوّقي التشكيلة الآن <i class="fa-solid fa-arrow-left mr-2"></i>
+                    </a>
+                    <button onclick="scrollToShein()" class="bg-purple-600/30 hover:bg-purple-600/50 text-purple-200 border border-purple-400/40 font-bold px-6 py-3 rounded-full backdrop-blur-md transition text-xs md:text-sm">
+                        <i class="fa-solid fa-calculator text-purple-400 ml-1"></i> حاسبة طلبات شي إن
+                    </button>
+                </div>
+            </div>
+
+            <!-- Featured Product Card Banner -->
+            <div class="relative w-full max-w-sm">
+                <div class="absolute -inset-1 bg-gradient-to-r from-gold-500 to-amber-300 rounded-2xl blur opacity-30 animate-pulse"></div>
+                <div class="relative bg-slate-900/90 border border-slate-800 p-4 rounded-2xl shadow-2xl backdrop-blur-md">
+                    <div class="relative rounded-xl overflow-hidden h-64 mb-3">
+                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80" alt="طقم Nova النسائي" class="w-full h-full object-cover">
+                        <span class="absolute top-3 right-3 bg-rose-600 text-white text-[11px] font-bold px-2.5 py-1 rounded-full shadow">الأكثر طلباً 🔥</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="font-bold text-white text-base">طقم Nova النسائي العصري</h3>
+                            <p class="text-xs text-slate-400">قماش كريب ناعم وقصة إيطالية</p>
+                        </div>
+                        <div class="text-left">
+                            <span class="text-gold-400 font-black text-lg">240 د.ل</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 my-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
+            <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-3.5 hover:shadow-md transition">
+                <div class="w-11 h-11 rounded-xl bg-gold-50 text-gold-600 flex items-center justify-center text-lg shrink-0">
+                    <i class="fa-solid fa-truck-fast"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900 text-xs md:text-sm">توصيل سريع ومباشر</h4>
+                    <p class="text-[11px] text-slate-500 mt-0.5">لكافة المدن والمناطق الليبية</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-3.5 hover:shadow-md transition">
+                <div class="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg shrink-0">
+                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900 text-xs md:text-sm">دفع عند الاستلام</h4>
+                    <p class="text-[11px] text-slate-500 mt-0.5">أو سداد / تداول / تحويل بنكي</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-3.5 hover:shadow-md transition">
+                <div class="w-11 h-11 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-lg shrink-0">
+                    <i class="fa-solid fa-calculator"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900 text-xs md:text-sm">حاسبة شي إن الذكية</h4>
+                    <p class="text-[11px] text-slate-500 mt-0.5">احتساب فوري بالدينار الليبي</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-3.5 hover:shadow-md transition">
+                <div class="w-11 h-11 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-lg shrink-0">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900 text-xs md:text-sm">دعم متواصل</h4>
+                    <p class="text-[11px] text-slate-500 mt-0.5">على الواتساب 0916188886</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sheinSection" class="max-w-7xl mx-auto px-4 sm:px-6 my-10">
+        <div class="bg-gradient-to-br from-slate-900 via-darknavy to-purple-950 text-white rounded-3xl p-6 md:p-10 shadow-2xl border border-purple-500/30 relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 w-60 h-60 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-8 border-b border-slate-800 pb-6">
+                <div>
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="bg-purple-500/20 text-purple-300 text-xs px-3 py-1 rounded-full border border-purple-400/30 font-bold">
+                            🛍️ خدمة وساطة شي إن SHEIN
+                        </span>
+                        <span id="sheinRateBadge" class="bg-gold-500/20 text-gold-300 text-xs px-3 py-1 rounded-full border border-gold-400/30 font-bold">
+                            سعر الصرف الحالي: 8.65 د.ل
+                        </span>
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-black text-white">حاسبة طلبات شي إن الفورية بالدينار الليبي</h2>
+                    <p class="text-slate-300 text-xs md:text-sm mt-1">ضع روابط سلتك أو اكتب تفاصيل المنتجات لحساب التكلفة الإجمالية والعربون بدقة</p>
+                </div>
+
+                <a href="https://wa.me/218916188886" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow shrink-0">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>استفسار مباشر مع Nova Style</span>
+                </a>
+            </div>
+
+            <!-- Calculator Inputs Form -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+                <div class="lg:col-span-2 space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-200 mb-1.5">روابط منتجات شي إن أو تفاصيل الطلب:</label>
+                        <textarea id="sheinCartLinks" rows="2" placeholder="ضع روابط منتجات شي إن هنا ..." 
+                                  class="w-full bg-slate-950/80 border border-slate-800 rounded-xl p-3 text-xs md:text-sm text-white focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-inner"></textarea>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-200 mb-1.5">إجمالي السعر بالسلة ($ USD):</label>
+                            <input type="number" id="sheinCartPrice" min="0" step="0.01" placeholder="مثال: 65.5" oninput="calculateSheinTotal()"
+                                   class="w-full bg-slate-950/80 border border-slate-800 rounded-xl p-3 text-xs md:text-sm text-white focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-inner">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-200 mb-1.5">عدد القطع الإجمالي بالسلة:</label>
+                            <input type="number" id="sheinItemsCount" min="1" value="1" oninput="calculateSheinTotal()"
+                                   class="w-full bg-slate-950/80 border border-slate-800 rounded-xl p-3 text-xs md:text-sm text-white focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-inner">
+                        </div>
+                    </div>
+
+                    <button onclick="calculateSheinTotal()" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-extrabold py-3.5 rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-xs md:text-sm">
+                        <i class="fa-solid fa-calculator text-base"></i>
+                        <span>احسب القيمة الإجمالية والعربون الفوري</span>
+                    </button>
+                </div>
+
+                <!-- Calculator Output Card -->
+                <div class="bg-slate-950/90 border border-slate-800 rounded-2xl p-5 backdrop-blur-sm space-y-3">
+                    <h3 class="font-bold text-slate-100 text-sm border-b border-slate-800 pb-2.5 flex items-center justify-between">
+                        <span>📊 تفاصيل الفاتورة المقدرة</span>
+                        <span class="text-[10px] text-purple-400 font-normal">Nova Style Calculator</span>
+                    </h3>
+
+                    <div class="space-y-2 text-xs">
+                        <div class="flex justify-between text-slate-300">
+                            <span>قيمة المنتجات بالدينار:</span>
+                            <span id="sheinResProducts" class="font-bold text-white">0.00 د.ل</span>
+                        </div>
+                        <div class="flex justify-between text-slate-300">
+                            <span>تكلفة الشحن المقدرة:</span>
+                            <span id="sheinResShipping" class="font-bold text-white">0.00 د.ل</span>
+                        </div>
+                        <div class="flex justify-between text-slate-300">
+                            <span>عمولة الخدمة والثوابت:</span>
+                            <span id="sheinResFee" class="font-bold text-white">25.00 د.ل</span>
+                        </div>
+
+                        <div class="pt-3 border-t border-slate-800 flex justify-between text-sm font-black text-gold-400">
+                            <span>المجموع الكلي للطلب:</span>
+                            <span id="sheinResGrandTotal">0.00 د.ل</span>
+                        </div>
+
+                        <div class="p-3 bg-emerald-950/50 border border-emerald-500/30 rounded-xl flex justify-between items-center text-emerald-400 font-extrabold text-xs">
+                            <span>العربون المطلوبة لتأكيد الطلب (30%):</span>
+                            <span id="sheinResDeposit">0.00 د.ل</span>
+                        </div>
+                    </div>
+
+                    <button onclick="submitSheinOrderToWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-xs transition flex items-center justify-center gap-2 shadow mt-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>إرسال طلب شي إن عبر الواتساب</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="catalog" class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+        
+        <!-- Header Controls & Category Filtering -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+            <div>
+                <h2 class="text-2xl md:text-3xl font-black text-slate-900" id="catalogTitle">جميع منتجات المتجر</h2>
+                <p class="text-xs md:text-sm text-slate-500 mt-1">تصفحي أرقى تشكيلات Nova Style المتاحة للتوصيل المباشر</p>
+            </div>
+
+            <!-- Sorting Dropdown -->
+            <div class="flex items-center gap-3">
+                <span class="text-xs text-slate-500 font-bold hidden sm:inline">ترتيب المنتجات:</span>
+                <select id="sortBy" onchange="handleSortChange()" class="bg-white border border-slate-200 text-slate-700 text-xs md:text-sm rounded-xl px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-gold-500 shadow-sm">
+                    <option value="featured">الأكثر مبيعاً ورواجاً</option>
+                    <option value="price-low">السعر: من الأقل للأعلى</option>
+                    <option value="price-high">السعر: من الأعلى للأقل</option>
+                    <option value="newest">الأحدث وصولاً للمتجر</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Products Grid Container -->
+        <div id="productsGrid" class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            <!-- Dynamic products generated here via JS -->
+        </div>
+
+        <!-- Empty State UI -->
+        <div id="emptyGridState" class="hidden text-center py-16 bg-white rounded-3xl border border-dashed border-slate-200 p-8 my-6">
+            <div class="w-16 h-16 bg-slate-100 text-slate-400 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl">
+                <i class="fa-solid fa-box-open"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-800">لا توجد منتجات مطابقة للبحث</h3>
+            <p class="text-xs text-slate-500 mt-1">جربي البحث برمز آخر أو اختاري قسم آخر من الأقسام العلويّة</p>
+            <button onclick="selectCategory('all')" class="mt-4 bg-gold-600 text-white font-bold px-5 py-2 rounded-xl text-xs">إعادة عرض الكل</button>
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 text-slate-400 pt-16 pb-8 border-t border-slate-800 my-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-2xl bg-gold-500 text-slate-950 flex items-center justify-center font-black text-2xl">N</div>
+                        <span class="text-2xl font-black text-white">Nova Style</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                        متجرك الليبي الشامل لأحدث صيحات الملابس النسائية، أزياء الأطفال، الإكسسوارات الفاخرة، والأدوات المنزلية العصرية، مع خدمة طلبات وتجميع شي إن الفورية.
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <a href="https://wa.me/218916188886" target="_blank" class="w-9 h-9 rounded-full bg-slate-800 hover:bg-emerald-600 hover:text-white flex items-center justify-center transition"><i class="fa-brands fa-whatsapp text-base"></i></a>
+                        <a href="tel:0916188886" class="w-9 h-9 rounded-full bg-slate-800 hover:bg-gold-500 hover:text-slate-950 flex items-center justify-center transition"><i class="fa-solid fa-phone text-sm"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm">أقسام المتجر</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#catalog" onclick="selectCategory('women')" class="hover:text-gold-400 transition">ملابس نسائية راقية</a></li>
+                        <li><a href="#catalog" onclick="selectCategory('kids')" class="hover:text-gold-400 transition">أزياء ومستلزمات الأطفال</a></li>
+                        <li><a href="#catalog" onclick="selectCategory('acc')" class="hover:text-gold-400 transition">إكسسوارات وحقائب أنيقة</a></li>
+                        <li><a href="#catalog" onclick="selectCategory('home')" class="hover:text-gold-400 transition">أدوات ومنظمات منزلية</a></li>
+                        <li><a href="#sheinSection" onclick="selectCategory('shein')" class="hover:text-gold-400 transition">حاسبة وطلبات شي إن (SHEIN)</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm">خدمة العملاء والشحن</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><span class="text-slate-400">طريقة الدفع: نقداً عند الاستلام</span></li>
+                        <li><span class="text-slate-400">التطبيقات المصرفية: سداد / تداول / بنكي</span></li>
+                        <li><span class="text-slate-400">مدة التوصيل: 7 - 14 يوم</span></li>
+                        <li><span class="text-slate-400">التوصيل لكافة مدن ليبيا</span></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm">التواصل المباشر</h4>
+                    <div class="space-y-3 text-xs">
+                        <p class="flex items-center gap-2.5"><i class="fa-solid fa-phone text-gold-500"></i> 0916188886</p>
+                        <p class="flex items-center gap-2.5"><i class="fa-brands fa-whatsapp text-emerald-500 text-sm"></i> 0916188886</p>
+                        <p class="flex items-center gap-2.5"><i class="fa-solid fa-location-dot text-gold-500"></i> طرابلس وبنغازي وكافة المدن الليبية</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+                <p>© 2026 Nova Style Store. جميع الحقوق محفوظة.</p>
+                <div class="flex items-center gap-2 text-slate-500">
+                    <span>وسائل الدفع المقبولة:</span>
+                    <span class="bg-slate-800 px-2.5 py-1 rounded text-[10px] text-white">الدفع عند الاستلام</span>
+                    <span class="bg-slate-800 px-2.5 py-1 rounded text-[10px] text-white">سداد / تداول</span>
+                    <span class="bg-slate-800 px-2.5 py-1 rounded text-[10px] text-white">تحويل بنكي</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="cartDrawer" class="fixed inset-0 z-50 overflow-hidden hidden">
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" onclick="toggleCartDrawer()"></div>
+        <div class="fixed inset-y-0 left-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col justify-between">
+                
+                <!-- Drawer Header -->
+                <div class="p-6 bg-slate-950 text-white flex items-center justify-between border-b border-slate-800">
+                    <div class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-bag-shopping text-gold-400 text-xl"></i>
+                        <h3 class="font-bold text-lg">سلة تسوق Nova Style</h3>
+                    </div>
+                    <button onclick="toggleCartDrawer()" class="text-slate-400 hover:text-white text-xl">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <!-- Drawer Content -->
+                <div id="cartItemsContainer" class="p-6 overflow-y-auto flex-1 space-y-4">
+                    <!-- Dynamic Cart Items -->
+                </div>
+
+                <!-- Drawer Footer Summary -->
+                <div class="p-6 border-t border-slate-100 bg-slate-50 space-y-4">
+                    <div class="flex justify-between items-center text-sm font-semibold text-slate-700">
+                        <span>إجمالي المنتجات بالسلة:</span>
+                        <span id="cartSubtotal" class="font-black text-slate-900 text-lg">0.00 د.ل</span>
+                    </div>
+                    <div class="flex justify-between items-center text-xs text-slate-500">
+                        <span>رسوم الشحن والتوصيل:</span>
+                        <span>تحسب تلقائياً حسب مدينتك عند الشراء</span>
+                    </div>
+
+                    <button onclick="openCheckoutModal()" class="w-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-slate-950 font-black py-3.5 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-xs md:text-sm">
+                        <span>إتمام الطلب الآن</span>
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="checkoutModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 md:p-8 shadow-2xl max-h-[90vh] overflow-y-auto relative border border-slate-100">
+            <button onclick="closeCheckoutModal()" class="absolute top-5 left-5 text-slate-400 hover:text-slate-600 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-2 text-xl">
+                    <i class="fa-solid fa-clipboard-check"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900">إتمام الشراء والشحن</h3>
+                <p class="text-xs text-slate-500">أدخلي تفاصيل الاستلام لإرسال الطلب وإصدار الفاتورة فوراً</p>
+            </div>
+
+            <form id="checkoutForm" onsubmit="handleCheckoutSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">الاسم الكامل *</label>
+                    <input type="text" id="custName" required placeholder="أدخل اسم الكريم" class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-xs md:text-sm focus:ring-2 focus:ring-gold-500 outline-none">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">رقم الهاتف *</label>
+                        <input type="tel" id="custPhone" required placeholder="091xxxxxxx" class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-xs md:text-sm focus:ring-2 focus:ring-gold-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">المدينة *</label>
+                        <select id="custCity" onchange="calculateCheckoutTotals()" required class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-xs md:text-sm focus:ring-2 focus:ring-gold-500 outline-none">
+                            <option value="طرابلس">طرابلس (توصيل 10 د.ل)</option>
+                            <option value="بنغازي">بنغازي (توصيل 20 د.ل)</option>
+                            <option value="مصراتة">مصراتة (توصيل 15 د.ل)</option>
+                            <option value="الزاوية">الزاوية (توصيل 15 د.ل)</option>
+                            <option value="سبها">سبها (توصيل 25 د.ل)</option>
+                            <option value="مدينة أخرى">مدينة أخرى (توصيل 20 د.ل)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">العنوان بالتفصيل / نقطة دالة *</label>
+                    <input type="text" id="custAddress" required placeholder="مثال: النوفليين بالقرب من مدرسة..." class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-xs md:text-sm focus:ring-2 focus:ring-gold-500 outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">طريقة الدفع المفضلة</label>
+                    <select id="paymentMethod" class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-xs md:text-sm focus:ring-2 focus:ring-gold-500 outline-none">
+                        <option value="الدفع نقداً عند الاستلام">نقداً عند الاستلام (Cash on Delivery)</option>
+                        <option value="خدمة سداد (Saddad)">خدمة سداد المصرفية</option>
+                        <option value="خدمة تداول / ادفع لي">خدمة تداول / ادفع لي</option>
+                        <option value="تحويل مصرفي مباشر">تحويل مصرفي مباشر</option>
+                    </select>
+                </div>
+
+                <!-- Financial Calculation Box -->
+                <div class="bg-slate-50 p-4 rounded-xl space-y-2 border border-slate-200 text-xs">
+                    <div class="flex justify-between text-slate-600">
+                        <span>مجموع منتجات السلة:</span>
+                        <span id="modalSubtotal" class="font-bold text-slate-900">0.00 د.ل</span>
+                    </div>
+                    <div class="flex justify-between text-slate-600">
+                        <span>رسوم التوصيل حسب المدينـة:</span>
+                        <span id="modalDelivery" class="font-bold text-slate-900">10.00 د.ل</span>
+                    </div>
+                    <div class="flex justify-between pt-2 border-t text-sm font-black text-gold-700">
+                        <span>المبلغ الإجمالي المستحق:</span>
+                        <span id="modalGrandTotal">0.00 د.ل</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl shadow-lg transition flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span>تأكيد الطلب عبر الواتساب وخادم المتجر</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div id="quickViewModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl max-w-2xl w-full p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto border border-slate-100">
+            <button onclick="closeQuickView()" class="absolute top-4 left-4 text-slate-400 hover:text-slate-600 text-xl z-10">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="quickViewContent" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Content injected dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <div id="adminAuthModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl relative border border-slate-200 text-center space-y-4">
+            <button onclick="closeAdminAuthModal()" class="absolute top-4 left-4 text-slate-400 hover:text-slate-600 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="w-14 h-14 rounded-2xl bg-gold-100 text-gold-700 flex items-center justify-center font-bold text-2xl mx-auto shadow-sm">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+
+            <h3 class="text-lg font-black text-slate-900">رمز حماية لوحة التحكم</h3>
+            <p class="text-xs text-slate-500">أدخل كلمة المرور للوصول لإدارة المتجر والمنتجات</p>
+
+            <form onsubmit="verifyAdminPasscode(event)" class="space-y-3">
+                <div>
+                    <input type="password" id="adminAuthPasscode" required placeholder="أدخل كلمة المرور (1234)" class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-center text-sm font-bold tracking-widest focus:ring-2 focus:ring-gold-500 outline-none">
+                </div>
+                <p id="adminAuthError" class="text-xs text-rose-600 font-bold hidden">كلمة المرور غير صحيحة! حاول مجدداً</p>
+                <button type="submit" class="w-full bg-gold-600 hover:bg-gold-700 text-white font-bold py-3 rounded-xl text-xs transition shadow-md">
+                    تأكيد الدخول
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div id="userAuthModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 md:p-8 shadow-2xl relative border border-slate-200">
+            <button onclick="closeUserAuthModal()" class="absolute top-5 left-5 text-slate-400 hover:text-slate-600 text-2xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- State 1: Login / Register View -->
+            <div id="userAuthLoginState">
+                <div class="text-center mb-6">
+                    <div class="w-14 h-14 rounded-2xl bg-gold-100 text-gold-700 flex items-center justify-center font-bold text-2xl mx-auto shadow-sm mb-3">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-slate-900">تسجيل الدخول برقم الهاتف</h3>
+                    <p class="text-xs text-slate-500 mt-1">أدخل رقم هاتفك للوصول لحسابك ومتابعة الطلبات</p>
+                </div>
+
+                <!-- Phone Entry Form -->
+                <form id="phoneLoginForm" onsubmit="handleSendOtp(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">الاسم الكامل *</label>
+                        <input type="text" id="authCustName" required placeholder="أدخل اسمك الكريم..." class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-xs md:text-sm focus:ring-2 focus:ring-gold-500 outline-none">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">رقم الهاتف الليبي *</label>
+                        <div class="relative dir-ltr">
+                            <input type="tel" id="authCustPhone" required placeholder="091xxxxxxx" pattern="^09[1|2|3|4|5][0-9]{7}$" class="w-full border border-slate-300 rounded-xl py-2.5 px-4 text-left text-sm font-bold tracking-wider focus:ring-2 focus:ring-gold-500 outline-none">
+                        </div>
+                        <p class="text-[10px] text-slate-400 mt-1 dir-rtl">مثال: 0916188886 أو 092xxxxxxx</p>
+                    </div>
+
+                    <button type="submit" class="w-full bg-slate-900 hover:bg-gold-600 hover:text-slate-950 text-white font-bold py-3.5 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-paper-plane text-sm"></i>
+                        <span>إرسال كود التفعيل الفوري</span>
+                    </button>
+                </form>
+
+                <!-- OTP Verification Sub-State -->
+                <form id="otpVerifyForm" onsubmit="handleVerifyOtp(event)" class="hidden space-y-4 mt-4 pt-4 border-t border-slate-100">
+                    <div class="bg-emerald-50 border border-emerald-200 text-emerald-800 p-3 rounded-xl text-xs text-center font-semibold">
+                        <i class="fa-solid fa-circle-check text-emerald-600 ml-1"></i>
+                        تم إرسال كود التفعيل إلى <span id="otpPhoneDisplay" class="font-bold dir-ltr">091xxxxxxx</span>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1 text-center">أدخلي رمز التفعيل (4 أرقام)</label>
+                        <input type="text" id="otpCodeInput" maxlength="4" required placeholder="1234" class="w-full text-center tracking-widest text-2xl font-black border border-slate-300 rounded-xl py-2 px-4 focus:ring-2 focus:ring-gold-500 outline-none">
+                        <p class="text-[10px] text-slate-400 text-center mt-1">(رمز التفعيل للاختبار التجريبي: <span class="font-bold text-slate-700">1234</span>)</p>
+                    </div>
+
+                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-user-check text-sm"></i>
+                        <span>تأكيد التفعيل والدخول لحسابي</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- State 2: Logged In Customer Profile View -->
+            <div id="userAuthProfileState" class="hidden space-y-5">
+                <div class="flex items-center gap-3 pb-4 border-b border-slate-100">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-gold-500 to-amber-300 text-slate-950 flex items-center justify-center font-black text-xl shadow-md">
+                        <span id="profileAvatarLetter">N</span>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-black text-slate-900" id="profileNameDisplay">أهلاً بكِ</h3>
+                        <p class="text-xs text-slate-500 font-bold dir-ltr" id="profilePhoneDisplay">091xxxxxxx</p>
+                    </div>
+                </div>
+
+                <!-- Default Delivery Info Settings -->
+                <form onsubmit="handleSaveProfileSettings(event)" class="space-y-3 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                    <h4 class="font-bold text-xs text-slate-800 flex items-center gap-1.5">
+                        <i class="fa-solid fa-location-dot text-gold-600"></i> عنوان الشحن الافتراضي
+                    </h4>
+
+                    <div class="grid grid-cols-2 gap-2">
+                        <div>
+                            <label class="block text-[10px] font-bold text-slate-600 mb-1">المدينة</label>
+                            <select id="profileCity" class="w-full border border-slate-300 rounded-lg p-2 text-xs focus:ring-2 focus:ring-gold-500 outline-none">
+                                <option value="طرابلس">طرابلس</option>
+                                <option value="بنغازي">بنغازي</option>
+                                <option value="مصراتة">مصراتة</option>
+                                <option value="الزاوية">الزاوية</option>
+                                <option value="سبها">سبها</option>
+                                <option value="مدينة أخرى">مدينة أخرى</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-slate-600 mb-1">العنوان بالتفصيل</label>
+                            <input type="text" id="profileAddress" placeholder="اسم الشارع / الحي" class="w-full border border-slate-300 rounded-lg p-2 text-xs focus:ring-2 focus:ring-gold-500 outline-none">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full bg-slate-900 hover:bg-gold-600 hover:text-slate-950 text-white font-bold py-2 rounded-xl text-[11px] transition">
+                        حفظ بيانات الشحن السريعة
+                    </button>
+                </form>
+
+                <!-- Customer Orders List -->
+                <div>
+                    <h4 class="font-bold text-xs text-slate-800 mb-2 flex items-center justify-between">
+                        <span>📦 طلباتي السابقة</span>
+                        <span id="profileOrdersCount" class="text-[10px] bg-slate-200 px-2 py-0.5 rounded-full text-slate-700">0 طلبات</span>
+                    </h4>
+
+                    <div id="customerOrdersContainer" class="max-h-40 overflow-y-auto space-y-2 text-xs">
+                        <!-- Dynamic Orders Injected Here -->
+                    </div>
+                </div>
+
+                <div class="pt-2 border-t border-slate-100 flex items-center justify-between">
+                    <button onclick="handleCustomerLogout()" class="text-xs text-rose-600 hover:text-rose-800 font-bold flex items-center gap-1">
+                        <i class="fa-solid fa-right-from-bracket"></i> تسجيل الخروج
+                    </button>
+                    <button onclick="closeUserAuthModal()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-xs">
+                        إغلاق
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="adminModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+        <div class="bg-white rounded-3xl max-w-5xl w-full p-6 md:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto border border-slate-200">
+            <button onclick="closeAdminModal()" class="absolute top-5 left-5 text-slate-400 hover:text-slate-700 text-2xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Admin Header -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between pb-4 border-b border-slate-200 mb-6 gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-2xl bg-gold-100 text-gold-700 flex items-center justify-center font-bold text-2xl">
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-black text-slate-900">لوحة تحكم إدارة متجر Nova Style</h3>
+                        <p class="text-xs text-slate-500">إدارة المنتجات، متابعة الطلبات، وتعديل أسعار حاسبة شي إن</p>
+                    </div>
+                </div>
+
+                <!-- Admin Tabs Nav -->
+                <div class="flex items-center gap-2 bg-slate-100 p-1.5 rounded-xl text-xs font-bold">
+                    <button id="adminTabProductsBtn" onclick="switchAdminTab('products')" class="px-4 py-2 rounded-lg bg-white shadow-sm text-slate-900">📦 المنتجات (<span id="adminProdCount">0</span>)</button>
+                    <button id="adminTabOrdersBtn" onclick="switchAdminTab('orders')" class="px-4 py-2 rounded-lg text-slate-600 hover:text-slate-900">📋 الطلبات الواردة (<span id="adminOrdersCount">0</span>)</button>
+                    <button id="adminTabSettingsBtn" onclick="switchAdminTab('settings')" class="px-4 py-2 rounded-lg text-slate-600 hover:text-slate-900">⚙️ حاسبة شي إن</button>
+                </div>
+            </div>
+
+            <!-- TAB 1: PRODUCTS MANAGEMENT -->
+            <div id="adminTabProducts" class="space-y-6">
+                
+                <!-- Product Form (Add / Edit) -->
+                <form id="productForm" onsubmit="handleSaveProduct(event)" class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-4">
+                    <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+                        <h4 id="formTitle" class="font-bold text-sm text-gold-700 flex items-center gap-2">
+                            <i class="fa-solid fa-circle-plus"></i> إضافة منتج جديد للمتجر
+                        </h4>
+                        <button type="button" onclick="cancelEdit()" class="text-xs text-slate-500 hover:text-slate-800">تفريغ الحقول</button>
+                    </div>
+                    
+                    <input type="hidden" id="editProductId" value="">
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="md:col-span-2">
+                            <label class="block text-xs font-bold text-slate-700 mb-1">اسم المنتج *</label>
+                            <input type="text" id="pName" required placeholder="مثال: فستان نسائي سهرة أنيق" class="w-full border border-slate-300 rounded-xl px-3.5 py-2 text-xs md:text-sm focus:ring-2 focus:ring-gold-500 outline-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">القسم / التصنيف *</label>
+                            <select id="pCategory" required class="w-full border border-slate-300 rounded-xl px-3.5 py-2 text-xs md:text-sm focus:ring-2 focus:ring-gold-500 outline-none">
+                                <option value="women">ملابس نسائية</option>
+                                <option value="kids">ملابس أطفال</option>
+                                <option value="acc">إكسسوارات وحقائب</option>
+                                <option value="home">أدوات منزلية</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">السعر (د.ل) *</label>
+                            <input type="number" id="pPrice" required min="1" step="0.5" placeholder="240" class="w-full border border-slate-300 rounded-xl px-3.5 py-2 text-xs md:text-sm focus:ring-2 focus:ring-gold-500 outline-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">السعر قبل الخصم (اختياري)</label>
+                            <input type="number" id="pOldPrice" step="0.5" placeholder="280" class="w-full border border-slate-300 rounded-xl px-3.5 py-2 text-xs md:text-sm focus:ring-2 focus:ring-gold-500 outline-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">الخامة / النوع</label>
+                            <input type="text" id="pFabric" placeholder="مثال: قطن كريب ناعم" class="w-full border border-slate-300 rounded-xl px-3.5 py-2 text-xs md:text-sm focus:ring-2 focus:ring-gold-500 outline-none">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">رابط صورة المنتج (URL) *</label>
+                            <input type="url" id="pImage" required placeholder="https://images.unsplash.com/..." class="w-full border border-slate-300 rounded-xl px-3.5 py-2 text-xs md:text-sm focus:ring-2 focus:ring-gold-500 outline-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">وسام / وسام عريض (Badge)</label>
+                            <input type="text" id="pBadge" placeholder="مثال: الأكثر مبيعاً 🔥" class="w-full border border-slate-300 rounded-xl px-3.5 py-2 text-xs md:text-sm focus:ring-2 focus:ring-gold-500 outline-none">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">وصف المنتـج التفصيلي</label>
+                        <textarea id="pDescription" rows="2" placeholder="أكتبي تفاصيل ومميزات المنتج المتميزة..." class="w-full border border-slate-300 rounded-xl px-3.5 py-2 text-xs md:text-sm focus:ring-2 focus:ring-gold-500 outline-none"></textarea>
+                    </div>
+
+                    <div class="flex items-center gap-3 justify-end pt-2">
+                        <button type="button" onclick="cancelEdit()" class="px-5 py-2 text-xs font-bold text-slate-500 hover:text-slate-800">إلغاء</button>
+                        <button type="submit" class="bg-gold-600 hover:bg-gold-700 text-white font-bold px-6 py-2.5 rounded-xl text-xs shadow-md transition flex items-center gap-1">
+                            <i class="fa-solid fa-floppy-disk"></i> <span id="btnSubmitText">حفظ المنتج بـ Cloud Firestore</span>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Products Table -->
+                <div class="overflow-x-auto border border-slate-200 rounded-2xl">
+                    <table class="w-full text-right text-xs">
+                        <thead class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
+                            <tr>
+                                <th class="p-3">الصورة</th>
+                                <th class="p-3">الاسم</th>
+                                <th class="p-3">القسم</th>
+                                <th class="p-3">السعر</th>
+                                <th class="p-3">حالة التوفر</th>
+                                <th class="p-3">العمليات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminProductsTable" class="divide-y divide-slate-100">
+                            <!-- Dynamic Table Rows -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- TAB 2: ORDERS MANAGEMENT -->
+            <div id="adminTabOrders" class="hidden space-y-4">
+                <div class="flex items-center justify-between">
+                    <h4 class="font-bold text-slate-900 text-sm">سجل الطلبات الواردة للمتجر</h4>
+                    <span class="text-xs text-slate-500">يتم تحديث الطلبات لحظياً من قاعدة البيانات</span>
+                </div>
+
+                <div class="overflow-x-auto border border-slate-200 rounded-2xl">
+                    <table class="w-full text-right text-xs">
+                        <thead class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
+                            <tr>
+                                <th class="p-3">رقم الطلب / التاريخ</th>
+                                <th class="p-3">الزبون</th>
+                                <th class="p-3">المدينة / الهاتف</th>
+                                <th class="p-3">نوع الطلب / الإجمالي</th>
+                                <th class="p-3">الحالة</th>
+                                <th class="p-3">العمليات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminOrdersTable" class="divide-y divide-slate-100">
+                            <!-- Dynamic Orders Rows -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- TAB 3: SHEIN CALCULATOR SETTINGS -->
+            <div id="adminTabSettings" class="hidden space-y-6">
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-4 max-w-xl mx-auto">
+                    <h4 class="font-bold text-slate-900 text-sm border-b border-slate-200 pb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-calculator text-purple-600"></i> إعدادات المتجر وحاسبة شي إن العامة
+                    </h4>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">كلمة مرور لوحة التحكم (Admin Passcode) *</label>
+                        <input type="text" id="settingAdminPasscode" value="1234" class="w-full border border-slate-300 rounded-xl p-3 text-xs md:text-sm focus:ring-2 focus:ring-gold-500 outline-none font-bold">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">سعر صرف الدولار (د.ل) *</label>
+                        <input type="number" id="settingUsdRate" step="0.01" min="1" value="6.65" class="w-full border border-slate-300 rounded-xl p-3 text-xs md:text-sm focus:ring-2 focus:ring-gold-500 outline-none">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">تكلفة شحن القطعة الواحدة (د.ل) *</label>
+                        <input type="number" id="settingShippingPerItem" step="0.5" min="0" value="12.00" class="w-full border border-slate-300 rounded-xl p-3 text-xs md:text-sm focus:ring-2 focus:ring-gold-500 outline-none">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">العمولة الثابتة على الطلبية (د.ل) *</label>
+                        <input type="number" id="settingBaseProfit" step="1" min="0" value="25.00" class="w-full border border-slate-300 rounded-xl p-3 text-xs md:text-sm focus:ring-2 focus:ring-gold-500 outline-none">
+                    </div>
+
+                    <button onclick="saveSheinSettings()" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-xl text-xs transition shadow flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        <span>حفظ الإعدادات وكلمة المرور بقاعدة البيانات</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Toast Notification Overlay -->
+    <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- Custom Confirmation Modal -->
+    <div id="customConfirmModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl text-center space-y-4">
+            <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto text-xl">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <h4 id="confirmModalTitle" class="font-bold text-slate-900 text-base">هل أنت تأكد؟</h4>
+            <p id="confirmModalText" class="text-xs text-slate-500 leading-relaxed"></p>
+            <div class="flex items-center justify-center gap-3 pt-2">
+                <button id="confirmCancelBtn" class="px-4 py-2 text-xs font-bold text-slate-500 hover:bg-slate-100 rounded-xl">إلغاء</button>
+                <button id="confirmOkBtn" class="px-5 py-2 text-xs font-bold bg-rose-600 text-white hover:bg-rose-700 rounded-xl shadow">تأكيد الحذف</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, doc, setDoc, getDoc, addDoc, updateDoc, deleteDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Firebase Configuration & Setup
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'nova-style-app-2026';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' 
+            ? JSON.parse(__firebase_config) 
+            : {
+                apiKey: "AIzaSyDummyKeyForFallbackNovaStyle",
+                authDomain: "nova-style-demo.firebaseapp.com",
+                projectId: "nova-style-demo",
+                storageBucket: "nova-style-demo.appspot.com",
+                messagingSenderId: "123456789",
+                appId: "1:123456789:web:abcdef123456"
+            };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        let currentUser = null;
+
+        // Global Application State
+        window.products = [];
+        window.orders = [];
+        window.cart = [];
+        window.wishlist = [];
+        window.currentCategory = 'all';
+        window.currentSort = 'featured';
+        window.isAdminAuthenticated = false;
+        window.customerUser = JSON.parse(localStorage.getItem('nova_customer_user')) || null;
+        window.sheinSettings = {
+            usdRate: 6.65,
+            shippingPerItem: 12.00,
+            baseProfit: 25.00,
+            adminPasscode: "1234"
+        };
+
+        // Sample fallback products if collection is initially empty
+        const defaultSampleProducts = [
+            {
+                name: "فستان نسائي كاجوال أنيق",
+                category: "women",
+                price: 240,
+                oldPrice: 280,
+                rating: 5.0,
+                reviewsCount: 22,
+                image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80",
+                fabric: "قطن كريب ناعم",
+                badge: "الأكثر مبيعاً 🔥",
+                isAvailable: true,
+                description: "فستان نسائي بتصميم عصري وأنيق يناسب الإطلالات اليومية والمناسبات، قماش عالي الجودة ومريح للغاية."
+            },
+            {
+                name: "طقم أطفال صيفي (بناتي/أولادي)",
+                category: "kids",
+                price: 110,
+                oldPrice: 140,
+                rating: 4.9,
+                reviewsCount: 18,
+                image: "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?auto=format&fit=crop&w=800&q=80",
+                fabric: "قطن 100% آمن للبشرة",
+                badge: "تشكيلة جديدة",
+                isAvailable: true,
+                description: "طقم أطفال قطني مريح جداً بألوان زاهية وتصاميم لطيفة تمنح طفلك حرية الحركة طوال اليوم."
+            },
+            {
+                name: "حقيبة يد نسائية فاخرة من Nova",
+                category: "acc",
+                price: 180,
+                oldPrice: 0,
+                rating: 4.8,
+                reviewsCount: 14,
+                image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80",
+                fabric: "جلد صناعي درجة أولى",
+                badge: "حصري",
+                isAvailable: true,
+                description: "حقيبة يد أنيقة بحجم مثالي مع تقسيمات داخلية عملية وحزام كتف قابل للتعديل."
+            },
+            {
+                name: "طقم منظمات مطبخ وديكور عصري",
+                category: "home",
+                price: 165,
+                oldPrice: 195,
+                rating: 5.0,
+                reviewsCount: 30,
+                image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80",
+                fabric: "أكريليك زجاجي مقاوم للصدمات",
+                badge: "عرض التوفير",
+                isAvailable: true,
+                description: "طقم منظمات فاخر للمطبخ والترتيب المنزلي بلمسات ديكور عملية تضفي ترتيباً وجمالاً لمطبخك."
+            }
+        ];
+
+        async function initAuthAndStore() {
+            try {
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+            } catch (err) {
+                console.warn("Auth fallback trigger:", err);
+            }
+
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    currentUser = user;
+                    setupFirestoreListeners();
+                }
+            });
+        }
+
+        function setupFirestoreListeners() {
+            // 1. Listen to Products Collection
+            const productsRef = collection(db, 'artifacts', appId, 'public', 'data', 'products');
+            onSnapshot(productsRef, (snapshot) => {
+                if (snapshot.empty && window.products.length === 0) {
+                    seedDefaultProducts();
+                } else {
+                    window.products = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                    renderProductsGrid();
+                    renderAdminProductsTable();
+                }
+            }, (error) => {
+                console.error("Products listener error:", error);
+            });
+
+            // 2. Listen to Orders Collection
+            const ordersRef = collection(db, 'artifacts', appId, 'public', 'data', 'orders');
+            onSnapshot(ordersRef, (snapshot) => {
+                window.orders = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                renderAdminOrdersTable();
+                if (window.customerUser) renderCustomerOrders();
+            }, (error) => {
+                console.error("Orders listener error:", error);
+            });
+
+            // 3. Listen to Settings Document
+            const settingsDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'global_config');
+            onSnapshot(settingsDocRef, (docSnap) => {
+                if (docSnap.exists()) {
+                    window.sheinSettings = docSnap.data();
+                    updateSheinUiSettings();
+                } else {
+                    setDoc(settingsDocRef, window.sheinSettings);
+                }
+            }, (error) => {
+                console.error("Settings listener error:", error);
+            });
+        }
+
+        async function seedDefaultProducts() {
+            if (!currentUser) return;
+            const productsRef = collection(db, 'artifacts', appId, 'public', 'data', 'products');
+            for (const item of defaultSampleProducts) {
+                await addDoc(productsRef, { ...item, createdAt: Date.now() });
+            }
+        }
+
+        function checkCustomerAuthState() {
+            const authDot = document.getElementById('userAuthDot');
+            const authIcon = document.getElementById('userAuthIcon');
+            const tooltip = document.getElementById('userAuthTooltip');
+
+            if (window.customerUser && window.customerUser.isLoggedIn) {
+                if (authDot) authDot.classList.remove('hidden');
+                if (authIcon) authIcon.className = "fa-solid fa-user-check text-xl text-gold-600";
+                if (tooltip) tooltip.innerText = `حسابي (${window.customerUser.name || ''})`;
+            } else {
+                if (authDot) authDot.classList.add('hidden');
+                if (authIcon) authIcon.className = "fa-regular fa-user text-xl";
+                if (tooltip) tooltip.innerText = "تسجيل الدخول";
+            }
+        }
+
+        window.openUserAuthModal = function() {
+            checkCustomerAuthState();
+            const modal = document.getElementById('userAuthModal');
+            const loginState = document.getElementById('userAuthLoginState');
+            const profileState = document.getElementById('userAuthProfileState');
+
+            if (window.customerUser && window.customerUser.isLoggedIn) {
+                loginState.classList.add('hidden');
+                profileState.classList.remove('hidden');
+
+                document.getElementById('profileNameDisplay').innerText = window.customerUser.name || 'عزيزي الزبون';
+                document.getElementById('profilePhoneDisplay').innerText = window.customerUser.phone || '09xxxxxxx';
+                document.getElementById('profileAvatarLetter').innerText = (window.customerUser.name || 'N').charAt(0).toUpperCase();
+
+                if (window.customerUser.city) document.getElementById('profileCity').value = window.customerUser.city;
+                if (window.customerUser.address) document.getElementById('profileAddress').value = window.customerUser.address;
+
+                renderCustomerOrders();
+            } else {
+                profileState.classList.add('hidden');
+                loginState.classList.remove('hidden');
+                document.getElementById('otpVerifyForm').classList.add('hidden');
+                document.getElementById('phoneLoginForm').classList.remove('hidden');
+            }
+
+            modal.classList.remove('hidden');
+        };
+
+        window.closeUserAuthModal = function() {
+            document.getElementById('userAuthModal').classList.add('hidden');
+        };
+
+        window.handleSendOtp = function(e) {
+            e.preventDefault();
+            const name = document.getElementById('authCustName').value.trim();
+            const phone = document.getElementById('authCustPhone').value.trim();
+
+            if (!phone || phone.length < 9) {
+                showToast("يرجى إدخال رقم هاتف ليبي صحيح", "warning");
+                return;
+            }
+
+            window.tempAuthUser = { name, phone };
+            document.getElementById('otpPhoneDisplay').innerText = phone;
+            document.getElementById('phoneLoginForm').classList.add('hidden');
+            document.getElementById('otpVerifyForm').classList.remove('hidden');
+            showToast(`تم إرسال كود التفعيل إلى ${phone}`, "info");
+        };
+
+        window.handleVerifyOtp = function(e) {
+            e.preventDefault();
+            const otpCode = document.getElementById('otpCodeInput').value.trim();
+
+            if (otpCode === "1234" || otpCode.length === 4) {
+                window.customerUser = {
+                    ...window.tempAuthUser,
+                    city: 'طرابلس',
+                    address: '',
+                    isLoggedIn: true
+                };
+
+                localStorage.setItem('nova_customer_user', JSON.stringify(window.customerUser));
+                checkCustomerAuthState();
+                showToast(`أهلاً بكِ يا ${window.customerUser.name}! تم تسجيل الدخول بنجاح`, "success");
+                window.openUserAuthModal();
+            } else {
+                showToast("رمز التفعيل غير صحيح! جربي استخدام 1234", "error");
+            }
+        };
+
+        window.handleSaveProfileSettings = function(e) {
+            e.preventDefault();
+            if (!window.customerUser) return;
+
+            window.customerUser.city = document.getElementById('profileCity').value;
+            window.customerUser.address = document.getElementById('profileAddress').value;
+
+            localStorage.setItem('nova_customer_user', JSON.stringify(window.customerUser));
+            showToast("تم حفظ عنوان الشحن الافتراضي بنجاح", "success");
+        };
+
+        window.handleCustomerLogout = function() {
+            window.customerUser = null;
+            localStorage.removeItem('nova_customer_user');
+            checkCustomerAuthState();
+            window.closeUserAuthModal();
+            showToast("تم تسجيل الخروج بنجاح", "info");
+        };
+
+        function renderCustomerOrders() {
+            const container = document.getElementById('customerOrdersContainer');
+            const countElem = document.getElementById('profileOrdersCount');
+            if (!container || !window.customerUser) return;
+
+            const myOrders = window.orders.filter(o => o.customerPhone === window.customerUser.phone);
+            if (countElem) countElem.innerText = `${myOrders.length} طلبات`;
+
+            if (myOrders.length === 0) {
+                container.innerHTML = `<p class="text-slate-400 text-center py-4 text-[11px]">لا توجد طلبات مسجلة بهذا الرقم حتى الآن</p>`;
+                return;
+            }
+
+            container.innerHTML = myOrders.map(o => {
+                const dateStr = new Date(o.createdAt || Date.now()).toLocaleDateString('ar-LY');
+                return `
+                    <div class="p-2.5 bg-white border border-slate-200 rounded-xl flex items-center justify-between shadow-sm">
+                        <div>
+                            <span class="font-bold text-slate-800">طلب #${o.id.substring(0, 5)}</span>
+                            <span class="text-[10px] text-slate-400 block">${dateStr}</span>
+                        </div>
+                        <div class="text-left">
+                            <span class="font-black text-gold-600 block">${o.grandTotal ? o.grandTotal.toFixed(2) : 0} د.ل</span>
+                            <span class="text-[10px] font-bold text-emerald-600">${o.status === 'NEW' ? 'قيد التجهيز' : 'مكتمل'}</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function updateSheinUiSettings() {
+            const badge = document.getElementById('sheinRateBadge');
+            if (badge) badge.innerText = `سعر الصرف الحالي: ${window.sheinSettings.usdRate} د.ل`;
+            
+            const passInput = document.getElementById('settingAdminPasscode');
+            if (passInput) passInput.value = window.sheinSettings.adminPasscode || "1234";
+
+            const rateInput = document.getElementById('settingUsdRate');
+            if (rateInput) rateInput.value = window.sheinSettings.usdRate;
+
+            const shipInput = document.getElementById('settingShippingPerItem');
+            if (shipInput) shipInput.value = window.sheinSettings.shippingPerItem;
+
+            const profitInput = document.getElementById('settingBaseProfit');
+            if (profitInput) profitInput.value = window.sheinSettings.baseProfit;
+
+            window.calculateSheinTotal();
+        }
+
+        window.selectCategory = function(cat) {
+            window.currentCategory = cat;
+
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                if (btn.dataset.cat === cat) {
+                    btn.classList.add('active', 'border-gold-600', 'font-extrabold');
+                    btn.classList.remove('border-transparent');
+                } else {
+                    btn.classList.remove('active', 'border-gold-600', 'font-extrabold');
+                    btn.classList.add('border-transparent');
+                }
+            });
+
+            const titleMap = {
+                all: "جميع منتجات المتجر",
+                women: "تشكيلة الملابس النسائية الراعية",
+                kids: "أزياء ومستلزمات الأطفال",
+                acc: "الإكسسوارات والحقائب الفاخرة",
+                home: "الأدوات والمنظمات المنزلية",
+                shein: "حاسبة طلبات شي إن الفورية"
+            };
+
+            const titleElem = document.getElementById('catalogTitle');
+            if (titleElem) titleElem.innerText = titleMap[cat] || "المنتجات";
+
+            if (cat === 'shein') {
+                window.scrollToShein();
+            } else {
+                renderProductsGrid();
+            }
+        };
+
+        window.scrollToShein = function() {
+            const el = document.getElementById('sheinSection');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        };
+
+        window.handleSearchInput = function() {
+            renderProductsGrid();
+        };
+
+        window.handleSortChange = function() {
+            window.currentSort = document.getElementById('sortBy').value;
+            renderProductsGrid();
+        };
+
+        function renderProductsGrid() {
+            const grid = document.getElementById('productsGrid');
+            const emptyState = document.getElementById('emptyGridState');
+            if (!grid) return;
+
+            const searchQuery = (document.getElementById('searchInput')?.value || '').trim().toLowerCase();
+
+            let filtered = window.products.filter(p => {
+                const matchCategory = window.currentCategory === 'all' || p.category === window.currentCategory;
+                const matchSearch = p.name.toLowerCase().includes(searchQuery) || (p.fabric && p.fabric.toLowerCase().includes(searchQuery));
+                return matchCategory && matchSearch;
+            });
+
+            if (window.currentSort === 'price-low') {
+                filtered.sort((a, b) => a.price - b.price);
+            } else if (window.currentSort === 'price-high') {
+                filtered.sort((a, b) => b.price - a.price);
+            } else if (window.currentSort === 'newest') {
+                filtered.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+            }
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+
+            grid.innerHTML = filtered.map(p => {
+                const isWish = window.wishlist.includes(p.id);
+                return `
+                    <div class="bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl transition duration-300 flex flex-col justify-between group">
+                        <div class="relative aspect-[3/4] overflow-hidden bg-slate-100">
+                            <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x800/1e293b/ffffff?text=Nova+Style'">
+                            
+                            ${p.badge ? `<span class="absolute top-3 right-3 bg-gradient-to-r from-gold-600 to-amber-500 text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full shadow-md">${p.badge}</span>` : ''}
+                            
+                            <button onclick="window.toggleWishlist('${p.id}')" class="absolute top-3 left-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur hover:bg-white text-slate-700 hover:text-rose-500 flex items-center justify-center transition shadow-sm">
+                                <i class="${isWish ? 'fa-solid fa-heart text-rose-500' : 'fa-regular fa-heart'} text-sm"></i>
+                            </button>
+
+                            <button onclick="window.openQuickView('${p.id}')" class="absolute bottom-3 left-1/2 -translate-x-1/2 bg-slate-900/80 hover:bg-slate-900 text-white text-[11px] font-bold px-4 py-1.5 rounded-full backdrop-blur opacity-0 group-hover:opacity-100 transition duration-300 shadow">
+                                معاينة سريعة
+                            </button>
+                        </div>
+
+                        <div class="p-4 flex flex-col flex-1 justify-between">
+                            <div>
+                                <span class="text-[10px] font-bold text-gold-600 uppercase tracking-widest">${p.fabric || 'Nova Style'}</span>
+                                <h3 class="font-bold text-slate-900 text-xs sm:text-sm mt-0.5 line-clamp-2">${p.name}</h3>
+                            </div>
+
+                            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                                <div>
+                                    <span class="text-sm sm:text-base font-black text-slate-900">${p.price} د.ل</span>
+                                    ${p.oldPrice && p.oldPrice > p.price ? `<span class="text-[10px] text-slate-400 line-through mr-1">${p.oldPrice} د.ل</span>` : ''}
+                                </div>
+
+                                <button onclick="window.addToCart('${p.id}')" class="bg-gold-500 hover:bg-gold-600 text-slate-950 font-extrabold text-xs px-3.5 py-2 rounded-xl transition shadow flex items-center gap-1">
+                                    <i class="fa-solid fa-cart-plus"></i>
+                                    <span>إضافة</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        window.addToCart = function(productId) {
+            const product = window.products.find(p => p.id === productId);
+            if (!product) return;
+
+            const existing = window.cart.find(item => item.id === productId);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                window.cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    qty: 1
+                });
+            }
+
+            updateCartUI();
+            showToast(`تمت إضافة "${product.name}" لسلة التسوق`, "success");
+        };
+
+        window.updateCartQty = function(productId, delta) {
+            const item = window.cart.find(i => i.id === productId);
+            if (!item) return;
+
+            item.qty += delta;
+            if (item.qty <= 0) {
+                window.cart = window.cart.filter(i => i.id !== productId);
+            }
+
+            updateCartUI();
+        };
+
+        window.removeFromCart = function(productId) {
+            window.cart = window.cart.filter(i => i.id !== productId);
+            updateCartUI();
+        };
+
+        function updateCartUI() {
+            const countElem = document.getElementById('cartCount');
+            const subtotalElem = document.getElementById('cartSubtotal');
+            const container = document.getElementById('cartItemsContainer');
+
+            const totalItems = window.cart.reduce((sum, i) => sum + i.qty, 0);
+            const subtotal = window.cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+
+            if (countElem) countElem.innerText = totalItems;
+            if (subtotalElem) subtotalElem.innerText = subtotal.toFixed(2) + ' د.ل';
+
+            if (!container) return;
+
+            if (window.cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 text-slate-400">
+                        <i class="fa-solid fa-bag-shopping text-4xl mb-3 text-slate-300"></i>
+                        <p class="text-xs font-bold">السلة فارغة حالياً</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = window.cart.map(item => `
+                <div class="flex items-center gap-3 p-3 bg-slate-50 rounded-xl border border-slate-100">
+                    <img src="${item.image}" alt="${item.name}" class="w-14 h-14 rounded-lg object-cover">
+                    <div class="flex-1">
+                        <h4 class="font-bold text-xs text-slate-900 line-clamp-1">${item.name}</h4>
+                        <span class="text-xs font-black text-gold-600">${item.price} د.ل</span>
+                        <div class="flex items-center gap-2 mt-1">
+                            <button onclick="window.updateCartQty('${item.id}', -1)" class="w-5 h-5 bg-white border border-slate-200 text-slate-700 rounded flex items-center justify-center font-bold text-xs">-</button>
+                            <span class="text-xs font-bold">${item.qty}</span>
+                            <button onclick="window.updateCartQty('${item.id}', 1)" class="w-5 h-5 bg-white border border-slate-200 text-slate-700 rounded flex items-center justify-center font-bold text-xs">+</button>
+                        </div>
+                    </div>
+                    <button onclick="window.removeFromCart('${item.id}')" class="text-slate-400 hover:text-rose-500 text-sm">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        window.toggleWishlist = function(productId) {
+            if (window.wishlist.includes(productId)) {
+                window.wishlist = window.wishlist.filter(id => id !== productId);
+                showToast("تمت إزالة المنتج من المفضلة", "info");
+            } else {
+                window.wishlist.push(productId);
+                showToast("تمت إضافة المنتج للمفضلة", "success");
+            }
+
+            const countElem = document.getElementById('wishlistCount');
+            if (countElem) countElem.innerText = window.wishlist.length;
+
+            renderProductsGrid();
+        };
+
+        window.openQuickView = function(productId) {
+            const p = window.products.find(item => item.id === productId);
+            if (!p) return;
+
+            const container = document.getElementById('quickViewContent');
+            if (!container) return;
+
+            container.innerHTML = `
+                <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-slate-100">
+                    <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover">
+                </div>
+                <div class="flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-gold-600 uppercase tracking-widest">${p.fabric || 'Nova Style'}</span>
+                        <h2 class="text-xl md:text-2xl font-black text-slate-900 mt-1">${p.name}</h2>
+                        
+                        <div class="flex items-center gap-2 text-gold-500 text-xs mt-2">
+                            <i class="fa-solid fa-star"></i>
+                            <span class="font-bold text-slate-800">${p.rating || 5.0}</span>
+                            <span class="text-slate-400">(${p.reviewsCount || 10} تقييمات)</span>
+                        </div>
+
+                        <p class="text-xs text-slate-600 mt-4 leading-relaxed">${p.description || p.name}</p>
+
+                        <div class="mt-4">
+                            <label class="block text-xs font-bold text-slate-700 mb-2">المقاسات المتوفرة:</label>
+                            <div class="flex gap-2">
+                                <button class="px-3 py-1.5 border border-gold-500 bg-gold-50 text-gold-700 rounded-lg text-xs font-bold">52</button>
+                                <button class="px-3 py-1.5 border border-slate-200 rounded-lg text-xs font-bold hover:border-gold-500">54</button>
+                                <button class="px-3 py-1.5 border border-slate-200 rounded-lg text-xs font-bold hover:border-gold-500">56</button>
+                                <button class="px-3 py-1.5 border border-slate-200 rounded-lg text-xs font-bold hover:border-gold-500">58</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t flex items-center justify-between">
+                        <div>
+                            <span class="text-xl font-black text-slate-900">${p.price} د.ل</span>
+                        </div>
+                        <button onclick="window.addToCart('${p.id}'); window.closeQuickView();" class="bg-gold-500 hover:bg-gold-600 text-slate-950 font-extrabold px-6 py-2.5 rounded-xl shadow transition text-xs">
+                            أضفي لسلة التسوق
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('quickViewModal').classList.remove('hidden');
+        };
+
+        window.closeQuickView = function() {
+            document.getElementById('quickViewModal').classList.add('hidden');
+        };
+
+        window.calculateSheinTotal = function() {
+            const usdVal = parseFloat(document.getElementById('sheinCartPrice')?.value) || 0;
+            const itemsVal = parseInt(document.getElementById('sheinItemsCount')?.value) || 1;
+
+            const rate = window.sheinSettings.usdRate || 6.65;
+            const shipPerItem = window.sheinSettings.shippingPerItem || 12.00;
+            const baseProfit = window.sheinSettings.baseProfit || 25.00;
+
+            const productsLYD = usdVal * rate;
+            const shippingLYD = itemsVal * shipPerItem;
+            const grandTotal = productsLYD + shippingLYD + baseProfit;
+            const deposit = grandTotal * 0.30;
+
+            const elProducts = document.getElementById('sheinResProducts');
+            const elShipping = document.getElementById('sheinResShipping');
+            const elFee = document.getElementById('sheinResFee');
+            const elGrandTotal = document.getElementById('sheinResGrandTotal');
+            const elDeposit = document.getElementById('sheinResDeposit');
+
+            if (elProducts) elProducts.innerText = productsLYD.toFixed(2) + ' د.ل';
+            if (elShipping) elShipping.innerText = shippingLYD.toFixed(2) + ' د.ل';
+            if (elFee) elFee.innerText = baseProfit.toFixed(2) + ' د.ل';
+            if (elGrandTotal) elGrandTotal.innerText = grandTotal.toFixed(2) + ' د.ل';
+            if (elDeposit) elDeposit.innerText = deposit.toFixed(2) + ' د.ل';
+        };
+
+        window.submitSheinOrderToWhatsApp = async function() {
+            const links = document.getElementById('sheinCartLinks')?.value.trim();
+            const usdVal = parseFloat(document.getElementById('sheinCartPrice')?.value) || 0;
+            const itemsVal = parseInt(document.getElementById('sheinItemsCount')?.value) || 1;
+
+            if (usdVal <= 0) {
+                showToast("يرجى إدخال إجمالي السعر بالدولار أولاً", "warning");
+                return;
+            }
+
+            const rate = window.sheinSettings.usdRate || 6.65;
+            const shipPerItem = window.sheinSettings.shippingPerItem || 12.00;
+            const baseProfit = window.sheinSettings.baseProfit || 25.00;
+
+            const grandTotal = (usdVal * rate) + (itemsVal * shipPerItem) + baseProfit;
+            const deposit = grandTotal * 0.30;
+
+            // Register Order in Cloud Firestore
+            if (currentUser) {
+                const ordersRef = collection(db, 'artifacts', appId, 'public', 'data', 'orders');
+                await addDoc(ordersRef, {
+                    type: 'SHEIN_CALCULATOR',
+                    customerName: window.customerUser?.name || 'زبون شي إن',
+                    customerPhone: window.customerUser?.phone || 'غير مسجل',
+                    details: links || 'طلب سلة شي إن',
+                    usdVal,
+                    itemsVal,
+                    grandTotal,
+                    deposit,
+                    status: 'NEW',
+                    createdAt: Date.now()
+                });
+            }
+
+            const msg = `*طلب جديد - حاسبة شي إن (Nova Style)* 🛍️%0A%0A` +
+                        `*روابط/تفاصيل السلة:* ${encodeURIComponent(links || 'مرفق بالسلة')}%0A` +
+                        `*السعر بالدولار:* $${usdVal}%0A` +
+                        `*عدد القطع:* ${itemsVal}%0A` +
+                        `*المجموع النهائي:* ${grandTotal.toFixed(2)} د.ل%0A` +
+                        `*العربون المطلوب (30%):* ${deposit.toFixed(2)} د.ل%0A%0A` +
+                        `يرجى تأكيد الاستلام لتأكيد الشراء والشحن. شكراً لكم!`;
+
+            window.open(`https://wa.me/218916188886?text=${msg}`, '_blank');
+        };
+
+        window.openCheckoutModal = function() {
+            if (window.cart.length === 0) {
+                showToast("سلة التسوق فارغة! اختر بعض المنتجات أولاً", "warning");
+                return;
+            }
+
+            window.toggleCartDrawer();
+            window.calculateCheckoutTotals();
+
+            // Auto Pre-fill from Customer Account if Logged in
+            if (window.customerUser && window.customerUser.isLoggedIn) {
+                const nameInput = document.getElementById('custName');
+                const phoneInput = document.getElementById('custPhone');
+                const cityInput = document.getElementById('custCity');
+                const addrInput = document.getElementById('custAddress');
+
+                if (nameInput) nameInput.value = window.customerUser.name || '';
+                if (phoneInput) phoneInput.value = window.customerUser.phone || '';
+                if (cityInput && window.customerUser.city) cityInput.value = window.customerUser.city;
+                if (addrInput && window.customerUser.address) addrInput.value = window.customerUser.address;
+            }
+
+            document.getElementById('checkoutModal').classList.remove('hidden');
+        };
+
+        window.closeCheckoutModal = function() {
+            document.getElementById('checkoutModal').classList.add('hidden');
+        };
+
+        window.calculateCheckoutTotals = function() {
+            const city = document.getElementById('custCity')?.value || 'طرابلس';
+            let delivery = 10;
+            if (city === 'بنغازي') delivery = 20;
+            if (city === 'مصراتة' || city === 'الزاوية') delivery = 15;
+            if (city === 'سبها' || city === 'مدينة أخرى') delivery = 25;
+
+            const subtotal = window.cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const grandTotal = subtotal + delivery;
+
+            document.getElementById('modalSubtotal').innerText = subtotal.toFixed(2) + ' د.ل';
+            document.getElementById('modalDelivery').innerText = delivery.toFixed(2) + ' د.ل';
+            document.getElementById('modalGrandTotal').innerText = grandTotal.toFixed(2) + ' د.ل';
+        };
+
+        window.handleCheckoutSubmit = async function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('custName').value;
+            const phone = document.getElementById('custPhone').value;
+            const city = document.getElementById('custCity').value;
+            const address = document.getElementById('custAddress').value;
+            const payment = document.getElementById('paymentMethod').value;
+
+            let delivery = 10;
+            if (city === 'بنغازي') delivery = 20;
+            if (city === 'مصراتة' || city === 'الزاوية') delivery = 15;
+            if (city === 'سبها' || city === 'مدينة أخرى') delivery = 25;
+
+            const subtotal = window.cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const grandTotal = subtotal + delivery;
+
+            // Save order in Cloud Firestore
+            if (currentUser) {
+                const ordersRef = collection(db, 'artifacts', appId, 'public', 'data', 'orders');
+                await addDoc(ordersRef, {
+                    type: 'REGULAR_STORE',
+                    customerName: name,
+                    customerPhone: phone,
+                    city,
+                    address,
+                    paymentMethod: payment,
+                    items: window.cart,
+                    subtotal,
+                    delivery,
+                    grandTotal,
+                    status: 'NEW',
+                    createdAt: Date.now()
+                });
+            }
+
+            let itemsText = window.cart.map(i => `• ${i.name} (العدد: ${i.qty}) - ${(i.price * i.qty).toFixed(2)} د.ل`).join('%0A');
+
+            let msg = `*طلب جديد - متجر Nova Style* 🛍️%0A%0A` +
+                      `*اسم الزبون/ة:* ${name}%0A` +
+                      `*رقم الهاتف:* ${phone}%0A` +
+                      `*المدينة:* ${city}%0A` +
+                      `*العنوان:* ${address}%0A` +
+                      `*طريقة الدفع:* ${payment}%0A%0A` +
+                      `*الطلبات:*%0A${itemsText}%0A%0A` +
+                      `*مجموع الطلبات:* ${subtotal.toFixed(2)} د.ل%0A` +
+                      `*رسوم التوصيل:* ${delivery.toFixed(2)} د.ل%0A` +
+                      `*المبلغ الإجمالي:* ${grandTotal.toFixed(2)} د.ل%0A%0A` +
+                      `يرجى تأكيد الاستلام والتجـهيز للشحن. شكراً لكم!`;
+
+            window.open(`https://wa.me/218916188886?text=${msg}`, '_blank');
+            
+            window.cart = [];
+            updateCartUI();
+            window.closeCheckoutModal();
+            showToast("تم إرسال طلبك وتسجيله بنجاح!", "success");
+        };
+
+        window.openAdminModal = function() {
+            if (window.isAdminAuthenticated) {
+                renderAdminProductsTable();
+                renderAdminOrdersTable();
+                document.getElementById('adminModal').classList.remove('hidden');
+            } else {
+                document.getElementById('adminAuthPasscode').value = '';
+                document.getElementById('adminAuthError').classList.add('hidden');
+                document.getElementById('adminAuthModal').classList.remove('hidden');
+            }
+        };
+
+        window.closeAdminAuthModal = function() {
+            document.getElementById('adminAuthModal').classList.add('hidden');
+        };
+
+        window.verifyAdminPasscode = function(e) {
+            if (e) e.preventDefault();
+            const entered = document.getElementById('adminAuthPasscode').value.trim();
+            const correctPass = window.sheinSettings.adminPasscode || "1234";
+
+            if (entered === correctPass) {
+                window.isAdminAuthenticated = true;
+                window.closeAdminAuthModal();
+                renderAdminProductsTable();
+                renderAdminOrdersTable();
+                document.getElementById('adminModal').classList.remove('hidden');
+                showToast("تم التحقق بنجاح والدخول للوحة التحكم", "success");
+            } else {
+                document.getElementById('adminAuthError').classList.remove('hidden');
+            }
+        };
+
+        window.closeAdminModal = function() {
+            document.getElementById('adminModal').classList.add('hidden');
+            window.cancelEdit();
+        };
+
+        window.switchAdminTab = function(tabName) {
+            ['Products', 'Orders', 'Settings'].forEach(t => {
+                const el = document.getElementById(`adminTab${t}`);
+                const btn = document.getElementById(`adminTab${t}Btn`);
+                if (t.toLowerCase() === tabName) {
+                    el.classList.remove('hidden');
+                    btn.classList.add('bg-white', 'shadow-sm', 'text-slate-900');
+                    btn.classList.remove('text-slate-600');
+                } else {
+                    el.classList.add('hidden');
+                    btn.classList.remove('bg-white', 'shadow-sm', 'text-slate-900');
+                    btn.classList.add('text-slate-600');
+                }
+            });
+        };
+
+        window.handleSaveProduct = async function(e) {
+            e.preventDefault();
+            if (!currentUser) return;
+
+            const editId = document.getElementById('editProductId').value;
+            const name = document.getElementById('pName').value;
+            const category = document.getElementById('pCategory').value;
+            const price = parseFloat(document.getElementById('pPrice').value);
+            const oldPrice = parseFloat(document.getElementById('pOldPrice').value) || 0;
+            const fabric = document.getElementById('pFabric').value || "خامة فاخرة";
+            const image = document.getElementById('pImage').value;
+            const badge = document.getElementById('pBadge').value;
+            const description = document.getElementById('pDescription').value || name;
+
+            const productData = {
+                name,
+                category,
+                price,
+                oldPrice,
+                fabric,
+                image,
+                badge: badge || "جديد",
+                description,
+                isAvailable: true,
+                updatedAt: Date.now()
+            };
+
+            const productsRef = collection(db, 'artifacts', appId, 'public', 'data', 'products');
+
+            if (editId) {
+                const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'products', editId);
+                await updateDoc(docRef, productData);
+                showToast("تم تعديل المنتج بنجاح في قاعدة البيانات", "success");
+            } else {
+                await addDoc(productsRef, {
+                    ...productData,
+                    rating: 5.0,
+                    reviewsCount: 1,
+                    createdAt: Date.now()
+                });
+                showToast("تمت إضافة المنتج الجديد لقاعدة البيانات", "success");
+            }
+
+            window.cancelEdit();
+        };
+
+        window.editProduct = function(id) {
+            const p = window.products.find(item => item.id === id);
+            if (!p) return;
+
+            document.getElementById('editProductId').value = p.id;
+            document.getElementById('pName').value = p.name;
+            document.getElementById('pCategory').value = p.category;
+            document.getElementById('pPrice').value = p.price;
+            document.getElementById('pOldPrice').value = p.oldPrice || '';
+            document.getElementById('pFabric').value = p.fabric || '';
+            document.getElementById('pImage').value = p.image;
+            document.getElementById('pBadge').value = p.badge || '';
+            document.getElementById('pDescription').value = p.description || '';
+
+            document.getElementById('formTitle').innerHTML = `<i class="fa-solid fa-pen-to-square"></i> تعديل المنتج: ${p.name}`;
+            document.getElementById('btnSubmitText').innerText = "حفظ التعديلات بقاعدة البيانات";
+            window.switchAdminTab('products');
+        };
+
+        window.deleteProduct = function(id) {
+            showConfirm("حذف المنتج", "هل أنت تأكد من رغبتك في حذف هذا المنتج نهائياً من قاعدة بيانات المتجر؟", async () => {
+                if (!currentUser) return;
+                const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'products', id);
+                await deleteDoc(docRef);
+                showToast("تم حذف المنتج من قاعدة البيانات", "info");
+            });
+        };
+
+        window.toggleProductAvailability = async function(id, currentStatus) {
+            if (!currentUser) return;
+            const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'products', id);
+            await updateDoc(docRef, { isAvailable: !currentStatus });
+            showToast("تم تحديث حالة توفر المنتج", "success");
+        };
+
+        window.cancelEdit = function() {
+            document.getElementById('productForm').reset();
+            document.getElementById('editProductId').value = '';
+            document.getElementById('formTitle').innerHTML = `<i class="fa-solid fa-circle-plus"></i> إضافة منتج جديد للمتجر`;
+            document.getElementById('btnSubmitText').innerText = "حفظ المنتج بـ Cloud Firestore";
+        };
+
+        function renderAdminProductsTable() {
+            const tableBody = document.getElementById('adminProductsTable');
+            const countElem = document.getElementById('adminProdCount');
+            if (countElem) countElem.innerText = window.products.length;
+            if (!tableBody) return;
+
+            const categoryNames = {
+                women: "ملابس نسائية",
+                kids: "ملابس أطفال",
+                acc: "إكسسوارات وحقائب",
+                home: "أدوات منزلية"
+            };
+
+            tableBody.innerHTML = window.products.map(p => `
+                <tr class="hover:bg-slate-50">
+                    <td class="p-3">
+                        <img src="${p.image}" alt="${p.name}" class="w-10 h-10 rounded-lg object-cover">
+                    </td>
+                    <td class="p-3 font-bold text-slate-900">${p.name}</td>
+                    <td class="p-3 text-slate-600">${categoryNames[p.category] || p.category}</td>
+                    <td class="p-3 font-bold text-gold-600">${p.price} د.ل</td>
+                    <td class="p-3">
+                        <button onclick="window.toggleProductAvailability('${p.id}', ${p.isAvailable !== false})" class="px-2.5 py-1 rounded-full text-[10px] font-bold ${p.isAvailable !== false ? 'bg-emerald-100 text-emerald-700' : 'bg-rose-100 text-rose-700'}">
+                            ${p.isAvailable !== false ? 'متوفر بالمخزن' : 'نفد المخزون'}
+                        </button>
+                    </td>
+                    <td class="p-3">
+                        <div class="flex items-center gap-2">
+                            <button onclick="window.editProduct('${p.id}')" class="p-1.5 text-blue-600 hover:bg-blue-50 rounded" title="تعديل">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </button>
+                            <button onclick="window.deleteProduct('${p.id}')" class="p-1.5 text-rose-600 hover:bg-rose-50 rounded" title="حذف">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function renderAdminOrdersTable() {
+            const tableBody = document.getElementById('adminOrdersTable');
+            const countElem = document.getElementById('adminOrdersCount');
+            if (countElem) countElem.innerText = window.orders.length;
+            if (!tableBody) return;
+
+            if (window.orders.length === 0) {
+                tableBody.innerHTML = `<tr><td colspan="6" class="p-6 text-center text-slate-400">لا توجد طلبات واردة حتى الآن</td></tr>`;
+                return;
+            }
+
+            tableBody.innerHTML = window.orders.map(o => {
+                const dateStr = new Date(o.createdAt || Date.now()).toLocaleDateString('ar-LY');
+                const isShein = o.type === 'SHEIN_CALCULATOR';
+                return `
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-3 font-bold text-slate-900">
+                            #${o.id.substring(0, 6)}<br>
+                            <span class="text-[10px] text-slate-400 font-normal">${dateStr}</span>
+                        </td>
+                        <td class="p-3 font-bold text-slate-800">${o.customerName || (isShein ? 'طلب حاسبة شي إن' : 'زبون غير معروف')}</td>
+                        <td class="p-3 text-slate-600">${o.city || 'ليبيا'} • ${o.customerPhone || 'N/A'}</td>
+                        <td class="p-3 font-black text-emerald-600">${o.grandTotal ? o.grandTotal.toFixed(2) : '0'} د.ل</td>
+                        <td class="p-3">
+                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold ${o.status === 'NEW' ? 'bg-amber-100 text-amber-800' : 'bg-emerald-100 text-emerald-800'}">
+                                ${o.status === 'NEW' ? 'طلب جديد' : 'مكتمل'}
+                            </span>
+                        </td>
+                        <td class="p-3">
+                            <button onclick="window.deleteOrder('${o.id}')" class="p-1.5 text-rose-600 hover:bg-rose-50 rounded" title="حذف الطلب">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        window.deleteOrder = function(id) {
+            showConfirm("حذف الطلب", "هل أنت تأكد من حذف هذا الطلب من السجل؟", async () => {
+                if (!currentUser) return;
+                const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'orders', id);
+                await deleteDoc(docRef);
+                showToast("تم حذف الطلب", "info");
+            });
+        };
+
+        window.saveSheinSettings = async function() {
+            if (!currentUser) return;
+
+            const adminPasscode = document.getElementById('settingAdminPasscode').value.trim() || "1234";
+            const usdRate = parseFloat(document.getElementById('settingUsdRate').value) || 6.65;
+            const shippingPerItem = parseFloat(document.getElementById('settingShippingPerItem').value) || 12.00;
+            const baseProfit = parseFloat(document.getElementById('settingBaseProfit').value) || 25.00;
+
+            const settingsDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'global_config');
+            await setDoc(settingsDocRef, {
+                adminPasscode,
+                usdRate,
+                shippingPerItem,
+                baseProfit,
+                updatedAt: Date.now()
+            });
+
+            showToast("تم حفظ الإعدادات وكلمة المرور بـ Cloud Firestore", "success");
+        };
+
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            if (!container) return;
+
+            const toast = document.createElement('div');
+            const bgColors = {
+                success: 'bg-emerald-600 text-white',
+                error: 'bg-rose-600 text-white',
+                warning: 'bg-amber-500 text-white',
+                info: 'bg-slate-900 text-white'
+            };
+
+            toast.className = `p-3.5 rounded-xl shadow-xl text-xs font-bold flex items-center gap-2 pointer-events-auto transition-all transform duration-300 opacity-0 translate-y-2 ${bgColors[type] || bgColors.info}`;
+            toast.innerHTML = `<i class="fa-solid fa-circle-info text-sm"></i> <span>${message}</span>`;
+
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-0', 'translate-y-2');
+            }, 50);
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-2');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        function showConfirm(title, text, onOk) {
+            const modal = document.getElementById('customConfirmModal');
+            document.getElementById('confirmModalTitle').innerText = title;
+            document.getElementById('confirmModalText').innerText = text;
+
+            const okBtn = document.getElementById('confirmOkBtn');
+            const cancelBtn = document.getElementById('confirmCancelBtn');
+
+            const cleanup = () => {
+                modal.classList.add('hidden');
+                okBtn.onclick = null;
+                cancelBtn.onclick = null;
+            };
+
+            okBtn.onclick = () => {
+                cleanup();
+                onOk();
+            };
+
+            cancelBtn.onclick = cleanup;
+            modal.classList.remove('hidden');
+        }
+
+        window.toggleCartDrawer = function() {
+            document.getElementById('cartDrawer').classList.toggle('hidden');
+        };
+
+        window.toggleWishlistDrawer = function() {
+            showToast(`لديك ${window.wishlist.length} منتجات في قائمة المفضلة`, "info");
+        };
+
+        window.toggleMobileMenu = function() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        };
+
+        // Initialize App Auth and Firestore on Window Load
+        window.addEventListener('load', () => {
+            initAuthAndStore();
+            checkCustomerAuthState();
+        });
+    </script>
+</body>
+</html>
