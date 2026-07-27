@@ -3,7 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Style - المتجر الإلكتروني الشامل</title>
+    
+    <!-- SEO & Meta Tags -->
+    <title>Nova Style - المتجر الإلكتروني الشامل في ليبيا</title>
+    <meta name="description" content="متجر Nova Style - أحدث صيحات الموضة النسائية، أزياء الأطفال، الإكسسوارات، والأدوات المنزلية العصرية في ليبيا. خدمة توصيل سريعة وحاسبة طلبات شي إن.">
+    <meta name="keywords" content="ملابس نسائية, أزياء أطفال, إكسسوارات, أدوات منزلية, تسوق أونلاين, ليبيا, طرابلس, بنغازي, شي إن, SHEIN, Nova Style">
+    <meta name="author" content="Nova Style Store">
+    
+    <!-- Open Graph (Facebook & WhatsApp Sharing) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Nova Style | عالم الموضة والمنزل">
+    <meta property="og:description" content="تسوقي أحدث صيحات الملابس النسائية وأزياء الأطفال والأدوات المنزلية بأفضل الأسعار.">
+    <meta property="og:url" content="https://novastyle.com.ly">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nova Style - المتجر الإلكتروني الشامل">
+    <meta name="twitter:description" content="تسوقي أحدث صيحات الموضة والمنزل العصري في ليبيا">
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -71,6 +88,14 @@
         .dir-rtl {
             direction: rtl;
         }
+        .animate-bounce-short {
+            animation: bounce-short 1s ease-out 1;
+        }
+        @keyframes bounce-short {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-20px);}
+            60% {transform: translateY(-10px);}
+        }
     </style>
 </head>
 <body class="bg-slate-50 antialiased text-slate-800 selection:bg-gold-500 selection:text-white">
@@ -83,15 +108,15 @@
                 <span>توصيل سريع وسلس لجميع مدن ومناطق ليبيا (طرابلس، بنغازي، مصراتة، الزاوية، سبها)</span>
             </div>
             <div class="mx-auto md:mx-0 font-semibold tracking-wide flex items-center gap-2">
-                <span class="bg-gold-500/20 text-gold-300 border border-gold-500/40 px-2 py-0.5 rounded text-[11px] font-bold">Nova Style</span>
-                <span>تخفيضات موسمية مميزة • خصم 10% عند الشراء اليوم!</span>
+                <span class="bg-gold-500/20 text-gold-300 border border-gold-500/40 px-2 py-0.5 rounded text-[11px] font-bold">novastyle.com.ly</span>
+                <span>متعة التسوق الإلكتروني الآمن • جودة ومصداقية</span>
             </div>
             <div class="hidden lg:flex items-center gap-4 text-xs text-gray-300">
                 <a href="tel:0916188886" class="hover:text-gold-400 transition flex items-center gap-1.5 font-bold">
                     <i class="fa-solid fa-phone text-gold-500"></i> 0916188886
                 </a>
                 <span class="text-gray-600">|</span>
-                <span class="text-emerald-400 font-bold flex items-center gap-1"><i class="fa-solid fa-shield-halved"></i> دفع عند الاستلام وحوالات فورية</span>
+                <span class="text-emerald-400 font-bold flex items-center gap-1"><i class="fa-solid fa-shield-halved"></i> دفع عند الاستلام</span>
             </div>
         </div>
     </div>
@@ -112,14 +137,14 @@
                         </div>
                         <div class="flex flex-col">
                             <span class="text-2xl font-black tracking-tight text-slate-900 group-hover:text-gold-600 transition-colors">Nova Style</span>
-                            <span class="text-[10px] tracking-widest uppercase text-slate-500 font-bold -mt-1">WOMEN • KIDS • ACC • HOME</span>
+                            <span class="text-[10px] tracking-widest uppercase text-slate-500 font-bold -mt-1">novastyle.com.ly</span>
                         </div>
                     </a>
                 </div>
 
                 <!-- Live Search Bar -->
                 <div class="hidden md:flex flex-1 max-w-md mx-8 relative">
-                    <input type="text" id="searchInput" oninput="handleSearchInput()" placeholder="ابحثي عن فستان، ملابس أطفال، إكسسوارات أو أدوات منزلية..." 
+                    <input type="text" id="searchInput" oninput="handleSearchInput()" placeholder="ابحثي عن فستان، ملابس أطفال، إكسسوارات..." 
                            class="w-full bg-slate-100/90 border border-slate-200 rounded-full py-2.5 pr-11 pl-4 text-xs md:text-sm focus:outline-none focus:ring-2 focus:ring-gold-500 focus:bg-white transition-all shadow-inner">
                     <button class="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-gold-600">
                         <i class="fa-solid fa-magnifying-glass text-sm"></i>
@@ -137,9 +162,9 @@
                     </button>
 
                     <!-- Admin Auth Button -->
-                    <button onclick="openAdminModal()" class="p-2.5 text-slate-700 hover:text-gold-600 hover:bg-gold-50/80 rounded-full transition relative group" title="لوحة تحكم المتجر وقواعد البيانات">
+                    <button onclick="openAdminModal()" class="p-2.5 text-slate-700 hover:text-gold-600 hover:bg-gold-50/80 rounded-full transition relative group" title="الإدارة">
                         <i class="fa-solid fa-sliders text-xl"></i>
-                        <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap shadow-md">الإدارة والدعم</span>
+                        <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap shadow-md">لوحة الإدارة</span>
                     </button>
 
                     <!-- Wishlist Button -->
@@ -153,12 +178,6 @@
                         <i class="fa-solid fa-bag-shopping text-xl group-hover:scale-110 transition-transform"></i>
                         <span id="cartCount" class="absolute -top-1 -right-1 bg-gold-600 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow">0</span>
                     </button>
-
-                    <!-- Direct WhatsApp Button -->
-                    <a href="https://wa.me/218912084588" target="_blank" class="hidden sm:flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2.5 rounded-full text-xs font-bold shadow-md hover:shadow-lg transition">
-                        <i class="fa-brands fa-whatsapp text-lg"></i>
-                        <span>طلب مباشر</span>
-                    </a>
                 </div>
             </div>
 
@@ -176,7 +195,7 @@
         </div>
     </header>
 
-    <!-- Mobile Menu Drawer -->
+    <!-- Mobile Drawer Navigation -->
     <div id="mobileMenu" class="fixed inset-0 bg-slate-900/60 z-50 backdrop-blur-sm hidden transition-opacity">
         <div class="bg-white w-4/5 max-w-xs h-full p-6 flex flex-col justify-between shadow-2xl overflow-y-auto">
             <div>
@@ -199,12 +218,29 @@
                 </div>
             </div>
             <div class="pt-6 border-t border-slate-100 text-xs text-slate-500 space-y-3">
-                <p class="flex items-center gap-2"><i class="fa-solid fa-phone text-gold-600"></i> 0912084588</p>
-                <p class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-gold-600"></i> طرابلس وبنغازي وكافة مدن ليبيا</p>
+                <p class="flex items-center gap-2"><i class="fa-solid fa-phone text-gold-600"></i> 0916188886</p>
+                <p class="flex items-center gap-2"><i class="fa-solid fa-globe text-gold-600"></i> novastyle.com.ly</p>
                 <a href="https://wa.me/218916188886" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-xl text-center font-bold block shadow">
                     تواصل مباشر عبر الواتساب
                 </a>
             </div>
+        </div>
+    </div>
+
+    <!-- Promotional Offer Modal (Pop-up) -->
+    <div id="offerModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl text-center relative border-4 border-gold-400 animate-bounce-short">
+            <button onclick="document.getElementById('offerModal').classList.add('hidden')" class="absolute top-3 left-3 text-slate-400 hover:text-slate-600">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <div class="w-16 h-16 bg-gold-100 text-gold-600 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl shadow-inner">
+                <i class="fa-solid fa-gift"></i>
+            </div>
+            <h3 class="text-xl font-black text-slate-900 mb-2">عرض خاص لكِ! 🎉</h3>
+            <p id="offerModalText" class="text-sm font-bold text-slate-600 leading-relaxed mb-4">احصلي على خصم وتوصيل مجاني اليوم!</p>
+            <button onclick="document.getElementById('offerModal').classList.add('hidden')" class="mt-2 w-full bg-gold-500 hover:bg-gold-600 text-slate-950 font-black py-3 rounded-xl shadow-md transition">
+                تسوقي الآن واستفيدي من العرض
+            </button>
         </div>
     </div>
 
@@ -214,7 +250,7 @@
         <div class="relative max-w-7xl mx-auto px-6 py-12 md:py-20 flex flex-col md:flex-row items-center justify-between gap-8">
             <div class="max-w-xl text-center md:text-right">
                 <span class="inline-flex items-center gap-2 bg-gold-500/20 text-gold-300 border border-gold-500/40 text-xs px-3.5 py-1.5 rounded-full font-bold mb-4">
-                    ✨ عالم الموضة والمنزل العصري | Nova Style
+                    ✨ عالم الموضة والمنزل العصري | novastyle.com.ly
                 </span>
                 <h1 class="text-3xl md:text-5xl font-extrabold leading-tight tracking-normal mb-4">
                     كل ما تحتاجه عائلتك وبيتك في مكان واحد
@@ -232,7 +268,7 @@
                 </div>
             </div>
 
-            <!-- Featured Product Card Banner -->
+            <!-- Featured Product Banner Card -->
             <div class="relative w-full max-w-sm">
                 <div class="absolute -inset-1 bg-gradient-to-r from-gold-500 to-amber-300 rounded-2xl blur opacity-30 animate-pulse"></div>
                 <div class="relative bg-slate-900/90 border border-slate-800 p-4 rounded-2xl shadow-2xl backdrop-blur-md">
@@ -254,7 +290,7 @@
         </div>
     </section>
 
-    <!-- Feature Pillars Section -->
+    <!-- Value Pillars Section -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 my-8">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
             <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-3.5 hover:shadow-md transition">
@@ -273,7 +309,7 @@
                 </div>
                 <div>
                     <h4 class="font-bold text-slate-900 text-xs md:text-sm">دفع عند الاستلام</h4>
-                    <p class="text-[11px] text-slate-500 mt-0.5">أو سداد / تحويل بنكي</p>
+                    <p class="text-[11px] text-slate-500 mt-0.5">أو سداد / تداول / تحويل بنكي</p>
                 </div>
             </div>
 
@@ -293,7 +329,7 @@
                 </div>
                 <div>
                     <h4 class="font-bold text-slate-900 text-xs md:text-sm">دعم متواصل</h4>
-                    <p class="text-[11px] text-slate-500 mt-0.5">على الواتساب 0912084588</p>
+                    <p class="text-[11px] text-slate-500 mt-0.5">على الواتساب 0916188886</p>
                 </div>
             </div>
         </div>
@@ -311,14 +347,14 @@
                             🛍️ خدمة وساطة شي إن SHEIN
                         </span>
                         <span id="sheinRateBadge" class="bg-gold-500/20 text-gold-300 text-xs px-3 py-1 rounded-full border border-gold-400/30 font-bold">
-                            سعر الصرف الحالي: 8.65 د.ل
+                            سعر الصرف الحالي: 6.65 د.ل
                         </span>
                     </div>
                     <h2 class="text-2xl md:text-3xl font-black text-white">حاسبة طلبات شي إن الفورية بالدينار الليبي</h2>
                     <p class="text-slate-300 text-xs md:text-sm mt-1">ضع روابط سلتك أو اكتب تفاصيل المنتجات لحساب التكلفة الإجمالية والعربون بدقة</p>
                 </div>
 
-                <a href="https://wa.me/218912084588" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow shrink-0">
+                <a href="https://wa.me/218916188886" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow shrink-0">
                     <i class="fa-brands fa-whatsapp text-lg"></i>
                     <span>استفسار مباشر مع Nova Style</span>
                 </a>
@@ -328,8 +364,8 @@
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
                 <div class="lg:col-span-2 space-y-4">
                     <div>
-                        <label class="block text-xs font-bold text-slate-200 mb-1.5">روابط منتجات شي إن أو تفاصيل الطلب:</label>
-                        <textarea id="sheinCartLinks" rows="2" placeholder="ضع رابط منتجات شي إن هنا ..." 
+                        <label class="block text-xs font-bold text-slate-200 mb-1.5">روابط منتجات شي إن أو تفاصيل الطلب والمقاسات:</label>
+                        <textarea id="sheinCartLinks" rows="2" placeholder="ضع روابط منتجات شي إن والمقاسات المطلوبة هنا ..." 
                                   class="w-full bg-slate-950/80 border border-slate-800 rounded-xl p-3 text-xs md:text-sm text-white focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-inner"></textarea>
                     </div>
 
@@ -394,10 +430,9 @@
         </div>
     </section>
 
-    <!-- Catalog Products Section -->
+    <!-- Catalog Products Grid Section -->
     <section id="catalog" class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
         
-        <!-- Header Controls & Category Filtering -->
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
             <div>
                 <h2 class="text-2xl md:text-3xl font-black text-slate-900" id="catalogTitle">جميع منتجات المتجر</h2>
@@ -416,9 +451,9 @@
             </div>
         </div>
 
-        <!-- Products Grid Container -->
+        <!-- Products Grid -->
         <div id="productsGrid" class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            <!-- Dynamic products generated here via JS -->
+            <!-- Dynamic products injected here -->
         </div>
 
         <!-- Empty State UI -->
@@ -445,7 +480,7 @@
                         متجرك الليبي الشامل لأحدث صيحات الملابس النسائية، أزياء الأطفال، الإكسسوارات الفاخرة، والأدوات المنزلية العصرية، مع خدمة طلبات وتجميع شي إن الفورية.
                     </p>
                     <div class="flex items-center gap-3">
-                        <a href="https://wa.me/218912084588" target="_blank" class="w-9 h-9 rounded-full bg-slate-800 hover:bg-emerald-600 hover:text-white flex items-center justify-center transition"><i class="fa-brands fa-whatsapp text-base"></i></a>
+                        <a href="https://wa.me/218916188886" target="_blank" class="w-9 h-9 rounded-full bg-slate-800 hover:bg-emerald-600 hover:text-white flex items-center justify-center transition"><i class="fa-brands fa-whatsapp text-base"></i></a>
                         <a href="tel:0916188886" class="w-9 h-9 rounded-full bg-slate-800 hover:bg-gold-500 hover:text-slate-950 flex items-center justify-center transition"><i class="fa-solid fa-phone text-sm"></i></a>
                     </div>
                 </div>
@@ -465,7 +500,7 @@
                     <h4 class="text-white font-bold mb-4 text-sm">خدمة العملاء والشحن</h4>
                     <ul class="space-y-2 text-xs">
                         <li><span class="text-slate-400">طريقة الدفع: نقداً عند الاستلام</span></li>
-                        <li><span class="text-slate-400">التطبيقات المصرفية: سداد  / بنكي</span></li>
+                        <li><span class="text-slate-400">التطبيقات المصرفية: سداد / تداول / بنكي</span></li>
                         <li><span class="text-slate-400">مدة التوصيل: 7 - 14 يوم</span></li>
                         <li><span class="text-slate-400">التوصيل لكافة مدن ليبيا</span></li>
                     </ul>
@@ -474,19 +509,19 @@
                 <div>
                     <h4 class="text-white font-bold mb-4 text-sm">التواصل المباشر</h4>
                     <div class="space-y-3 text-xs">
-                        <p class="flex items-center gap-2.5"><i class="fa-solid fa-phone text-gold-500"></i> 0912084588</p>
+                        <p class="flex items-center gap-2.5"><i class="fa-solid fa-phone text-gold-500"></i> 0916188886</p>
                         <p class="flex items-center gap-2.5"><i class="fa-brands fa-whatsapp text-emerald-500 text-sm"></i> 0916188886</p>
-                        <p class="flex items-center gap-2.5"><i class="fa-solid fa-location-dot text-gold-500"></i> طرابلس وبنغازي وكافة المدن الليبية</p>
+                        <p class="flex items-center gap-2.5"><i class="fa-solid fa-globe text-gold-500"></i> novastyle.com.ly</p>
                     </div>
                 </div>
             </div>
 
             <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-                <p>© 2026 Nova Style Store. جميع الحقوق محفوظة.</p>
+                <p>© 2026 Nova Style Store (novastyle.com.ly). جميع الحقوق محفوظة.</p>
                 <div class="flex items-center gap-2 text-slate-500">
                     <span>وسائل الدفع المقبولة:</span>
                     <span class="bg-slate-800 px-2.5 py-1 rounded text-[10px] text-white">الدفع عند الاستلام</span>
-                    <span class="bg-slate-800 px-2.5 py-1 rounded text-[10px] text-white">سداد </span>
+                    <span class="bg-slate-800 px-2.5 py-1 rounded text-[10px] text-white">سداد / تداول</span>
                     <span class="bg-slate-800 px-2.5 py-1 rounded text-[10px] text-white">تحويل بنكي</span>
                 </div>
             </div>
@@ -544,7 +579,7 @@
                     <i class="fa-solid fa-clipboard-check"></i>
                 </div>
                 <h3 class="text-xl font-bold text-slate-900">إتمام الشراء والشحن</h3>
-                <p class="text-xs text-slate-500">أدخل تفاصيل الاستلام لإرسال الطلب وإصدار الفاتورة فوراً</p>
+                <p class="text-xs text-slate-500">أدخلي تفاصيل الاستلام لإرسال الطلب وإصدار الفاتورة فوراً</p>
             </div>
 
             <form id="checkoutForm" onsubmit="handleCheckoutSubmit(event)" class="space-y-4">
@@ -609,7 +644,7 @@
         </div>
     </div>
 
-    <!-- Quick View Modal -->
+    <!-- Quick View Modal with Gallery & Social Share -->
     <div id="quickViewModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-sm">
         <div class="bg-white rounded-3xl max-w-2xl w-full p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto border border-slate-100">
             <button onclick="closeQuickView()" class="absolute top-4 left-4 text-slate-400 hover:text-slate-600 text-xl z-10">
@@ -621,7 +656,7 @@
         </div>
     </div>
 
-    <!-- Admin Auth Modal -->
+    <!-- Admin Verification Modal -->
     <div id="adminAuthModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
         <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl relative border border-slate-200 text-center space-y-4">
             <button onclick="closeAdminAuthModal()" class="absolute top-4 left-4 text-slate-400 hover:text-slate-600 text-xl">
@@ -637,7 +672,7 @@
 
             <form onsubmit="verifyAdminPasscode(event)" class="space-y-3">
                 <div>
-                    <input type="password" id="adminAuthPasscode" required placeholder="أدخل كلمة المرور (1234)" class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-center text-sm font-bold tracking-widest focus:ring-2 focus:ring-gold-500 outline-none">
+                    <input type="password" id="adminAuthPasscode" required placeholder="أدخل كلمة المرور (الافتراضية: 1234)" class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-center text-sm font-bold tracking-widest focus:ring-2 focus:ring-gold-500 outline-none">
                 </div>
                 <p id="adminAuthError" class="text-xs text-rose-600 font-bold hidden">كلمة المرور غير صحيحة! حاول مجدداً</p>
                 <button type="submit" class="w-full bg-gold-600 hover:bg-gold-700 text-white font-bold py-3 rounded-xl text-xs transition shadow-md">
@@ -654,7 +689,6 @@
                 <i class="fa-solid fa-xmark"></i>
             </button>
 
-            <!-- State 1: Login / Register View -->
             <div id="userAuthLoginState">
                 <div class="text-center mb-6">
                     <div class="w-14 h-14 rounded-2xl bg-gold-100 text-gold-700 flex items-center justify-center font-bold text-2xl mx-auto shadow-sm mb-3">
@@ -667,15 +701,15 @@
                 <form id="phoneLoginForm" onsubmit="handleSendOtp(event)" class="space-y-4">
                     <div>
                         <label class="block text-xs font-bold text-slate-700 mb-1">الاسم الكامل *</label>
-                        <input type="text" id="authCustName" required placeholder="أدخل الاسم ..." class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-xs md:text-sm focus:ring-2 focus:ring-gold-500 outline-none">
+                        <input type="text" id="authCustName" required placeholder="أدخل اسمك الكريم..." class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-xs md:text-sm focus:ring-2 focus:ring-gold-500 outline-none">
                     </div>
 
                     <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-1">رقم الهاتف  *</label>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">رقم الهاتف الليبي *</label>
                         <div class="relative dir-ltr">
                             <input type="tel" id="authCustPhone" required placeholder="091xxxxxxx" pattern="^09[1|2|3|4|5][0-9]{7}$" class="w-full border border-slate-300 rounded-xl py-2.5 px-4 text-left text-sm font-bold tracking-wider focus:ring-2 focus:ring-gold-500 outline-none">
                         </div>
-                        <p class="text-[10px] text-slate-400 mt-1 dir-rtl">مثال: 091 أو 092xxxxxxx</p>
+                        <p class="text-[10px] text-slate-400 mt-1 dir-rtl">مثال: 0916188886 أو 092xxxxxxx</p>
                     </div>
 
                     <button type="submit" class="w-full bg-slate-900 hover:bg-gold-600 hover:text-slate-950 text-white font-bold py-3.5 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-2">
@@ -691,7 +725,7 @@
                     </div>
 
                     <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-1 text-center">أدخل رمز التفعيل (4 أرقام)</label>
+                        <label class="block text-xs font-bold text-slate-700 mb-1 text-center">أدخلي رمز التفعيل (4 أرقام)</label>
                         <input type="text" id="otpCodeInput" maxlength="4" required placeholder="1234" class="w-full text-center tracking-widest text-2xl font-black border border-slate-300 rounded-xl py-2 px-4 focus:ring-2 focus:ring-gold-500 outline-none">
                         <p class="text-[10px] text-slate-400 text-center mt-1">(رمز التفعيل للاختبار التجريبي: <span class="font-bold text-slate-700">1234</span>)</p>
                     </div>
@@ -703,7 +737,6 @@
                 </form>
             </div>
 
-            <!-- State 2: Logged In Customer Profile View -->
             <div id="userAuthProfileState" class="hidden space-y-5">
                 <div class="flex items-center gap-3 pb-4 border-b border-slate-100">
                     <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-gold-500 to-amber-300 text-slate-950 flex items-center justify-center font-black text-xl shadow-md">
@@ -766,9 +799,9 @@
         </div>
     </div>
 
-    <!-- Admin Dashboard Modal -->
+    <!-- FULL ADMIN DASHBOARD MODAL -->
     <div id="adminModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
-        <div class="bg-white rounded-3xl max-w-5xl w-full p-6 md:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto border border-slate-200">
+        <div class="bg-white rounded-3xl max-w-5xl w-full p-6 md:p-8 shadow-2xl relative max-h-[92vh] overflow-y-auto border border-slate-200">
             <button onclick="closeAdminModal()" class="absolute top-5 left-5 text-slate-400 hover:text-slate-700 text-2xl">
                 <i class="fa-solid fa-xmark"></i>
             </button>
@@ -776,27 +809,76 @@
             <!-- Admin Header -->
             <div class="flex flex-col md:flex-row md:items-center justify-between pb-4 border-b border-slate-200 mb-6 gap-4">
                 <div class="flex items-center gap-3">
-                    <div class="w-12 h-12 rounded-2xl bg-gold-100 text-gold-700 flex items-center justify-center font-bold text-2xl">
-                        <i class="fa-solid fa-sliders"></i>
+                    <div class="w-12 h-12 rounded-2xl bg-gold-100 text-gold-700 flex items-center justify-center font-bold text-2xl shadow-sm">
+                        <i class="fa-solid fa-chart-line"></i>
                     </div>
                     <div>
-                        <h3 class="text-xl font-black text-slate-900">لوحة تحكم إدارة متجر Nova Style</h3>
-                        <p class="text-xs text-slate-500">إدارة المنتجات، متابعة الطلبات، وتعديل أسعار حاسبة شي إن</p>
+                        <h3 class="text-xl font-black text-slate-900">لوحة تحكم وإدارة متجر Nova Style</h3>
+                        <p class="text-xs text-slate-500">مربوطة مباشرة برابطك الرسمي: <span class="font-bold text-gold-700">novastyle.com.ly</span></p>
                     </div>
                 </div>
 
-                <!-- Admin Tabs Nav -->
-                <div class="flex items-center gap-2 bg-slate-100 p-1.5 rounded-xl text-xs font-bold">
-                    <button id="adminTabProductsBtn" onclick="switchAdminTab('products')" class="px-4 py-2 rounded-lg bg-white shadow-sm text-slate-900">📦 المنتجات (<span id="adminProdCount">0</span>)</button>
-                    <button id="adminTabOrdersBtn" onclick="switchAdminTab('orders')" class="px-4 py-2 rounded-lg text-slate-600 hover:text-slate-900">📋 الطلبات الواردة (<span id="adminOrdersCount">0</span>)</button>
-                    <button id="adminTabSettingsBtn" onclick="switchAdminTab('settings')" class="px-4 py-2 rounded-lg text-slate-600 hover:text-slate-900">⚙️ حاسبة شي إن</button>
+                <!-- Admin Tabs Navigation -->
+                <div class="flex flex-wrap items-center gap-1.5 bg-slate-100 p-1.5 rounded-2xl text-xs font-bold">
+                    <button id="adminTabStatsBtn" onclick="switchAdminTab('stats')" class="px-3.5 py-2 rounded-xl bg-white shadow-sm text-slate-900">📊 الإحصائيات</button>
+                    <button id="adminTabProductsBtn" onclick="switchAdminTab('products')" class="px-3.5 py-2 rounded-xl text-slate-600 hover:text-slate-900">📦 المنتجات (<span id="adminProdCount">0</span>)</button>
+                    <button id="adminTabOrdersBtn" onclick="switchAdminTab('orders')" class="px-3.5 py-2 rounded-xl text-slate-600 hover:text-slate-900">📋 الطلبات (<span id="adminOrdersCount">0</span>)</button>
+                    <button id="adminTabSettingsBtn" onclick="switchAdminTab('settings')" class="px-3.5 py-2 rounded-xl text-slate-600 hover:text-slate-900">⚙️ الإعدادات والتسويق</button>
                 </div>
             </div>
 
-            <!-- TAB 1: PRODUCTS MANAGEMENT -->
-            <div id="adminTabProducts" class="space-y-6">
-                
-                <!-- Product Form (Add / Edit) -->
+            <!-- TAB 1: ANALYTICS & STATS DASHBOARD -->
+            <div id="adminTabStats" class="space-y-6">
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-gradient-to-br from-emerald-50 to-emerald-100/50 p-5 rounded-2xl border border-emerald-200">
+                        <div class="flex items-center justify-between text-emerald-700 mb-2">
+                            <span class="text-xs font-bold">إجمالي أرباح ومبيعات المتجر</span>
+                            <i class="fa-solid fa-money-bill-wave text-lg"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-slate-900" id="statTotalRevenue">0.00 د.ل</h3>
+                        <p class="text-[10px] text-emerald-800 mt-1 font-semibold">محسوبة تلقائياً من المبيعات</p>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100/50 p-5 rounded-2xl border border-blue-200">
+                        <div class="flex items-center justify-between text-blue-700 mb-2">
+                            <span class="text-xs font-bold">إجمالي عدد الطلبات</span>
+                            <i class="fa-solid fa-cart-flatbed text-lg"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-slate-900" id="statTotalOrders">0</h3>
+                        <p class="text-[10px] text-blue-800 mt-1 font-semibold">طلبات مباشرة + شي إن</p>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-amber-50 to-amber-100/50 p-5 rounded-2xl border border-amber-200">
+                        <div class="flex items-center justify-between text-amber-700 mb-2">
+                            <span class="text-xs font-bold">طلبات جديدة قيد التجهيز</span>
+                            <i class="fa-solid fa-clock text-lg"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-slate-900" id="statPendingOrders">0</h3>
+                        <p class="text-[10px] text-amber-800 mt-1 font-semibold">تحتاج تأكيد الشحن</p>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-purple-50 to-purple-100/50 p-5 rounded-2xl border border-purple-200">
+                        <div class="flex items-center justify-between text-purple-700 mb-2">
+                            <span class="text-xs font-bold">إجمالي المنتجات بالمخزن</span>
+                            <i class="fa-solid fa-boxes-stacked text-lg"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-slate-900" id="statTotalProducts">0</h3>
+                        <p class="text-[10px] text-purple-800 mt-1 font-semibold">جاهزة للعرض والشراء</p>
+                    </div>
+                </div>
+
+                <!-- Quick Help Card -->
+                <div class="p-5 bg-slate-900 text-white rounded-2xl flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div>
+                        <h4 class="font-bold text-sm text-gold-400">✨ متجرك جاهز للتسويق على الدومين novastyle.com.ly</h4>
+                        <p class="text-xs text-slate-300 mt-1">تأكدي من تفعيل بيكسل فيسبوك من تبويب الإعدادات لتتبع حملاتك الإعلانية وزيادة المبيعات.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: PRODUCTS MANAGEMENT WITH MULTI IMAGE UPLOAD -->
+            <div id="adminTabProducts" class="hidden space-y-6">
+                <!-- Product Add / Edit Form -->
                 <form id="productForm" onsubmit="handleSaveProduct(event)" class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-4">
                     <div class="flex items-center justify-between border-b border-slate-200 pb-3">
                         <h4 id="formTitle" class="font-bold text-sm text-gold-700 flex items-center gap-2">
@@ -804,7 +886,7 @@
                         </h4>
                         <div class="flex items-center gap-3">
                             <button type="button" onclick="deleteAllProducts()" class="text-xs font-bold text-rose-600 hover:text-rose-800 bg-rose-50 px-3 py-1.5 rounded-lg border border-rose-200 flex items-center gap-1">
-                                <i class="fa-solid fa-trash-can"></i> مسح جميع المنتجات العينة
+                                <i class="fa-solid fa-trash-can"></i> مسح جميع المنتجات
                             </button>
                             <button type="button" onclick="cancelEdit()" class="text-xs text-slate-500 hover:text-slate-800">تفريغ الحقول</button>
                         </div>
@@ -844,15 +926,45 @@
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs font-bold text-slate-700 mb-1">رابط صورة المنتج (URL) *</label>
-                            <input type="url" id="pImage" required placeholder="https://images.unsplash.com/..." class="w-full border border-slate-300 rounded-xl px-3.5 py-2 text-xs md:text-sm focus:ring-2 focus:ring-gold-500 outline-none">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="md:col-span-2">
+                            <label class="block text-xs font-bold text-slate-700 mb-1">المقاسات المتوفرة (مفصولة بـ فارزة) *</label>
+                            <input type="text" id="pSizes" placeholder="مثال: S, M, L, XL أو 52, 54, 56, 58 أو قياس موحد" class="w-full border border-slate-300 rounded-xl px-3.5 py-2 text-xs md:text-sm focus:ring-2 focus:ring-gold-500 outline-none">
+                            <p class="text-[10px] text-slate-400 mt-1">إذا لم تدخل مقاسات، سيتم اعتبار المنتج بـ "قياس موحد"</p>
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 mb-1">وسام / وسام عريض (Badge)</label>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">وسام / الشارة (Badge)</label>
                             <input type="text" id="pBadge" placeholder="مثال: الأكثر مبيعاً 🔥" class="w-full border border-slate-300 rounded-xl px-3.5 py-2 text-xs md:text-sm focus:ring-2 focus:ring-gold-500 outline-none">
+                        </div>
+                    </div>
+
+                    <!-- Enhanced Multi-Image Upload Section -->
+                    <div class="bg-white p-4 rounded-xl border border-slate-200 space-y-3">
+                        <label class="block text-xs font-bold text-slate-800 flex items-center justify-between">
+                            <span>📸 صور المنتج (رفع مباشر من الكمبيوتر أو روابط)</span>
+                            <span class="text-[10px] text-gold-600 font-bold">يمكنك اختيار أكثر من صورة معاً</span>
+                        </label>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-[11px] font-bold text-slate-600 mb-1">رفع صور من جهازك (اختيار متعدد):</label>
+                                <input type="file" id="pImageFiles" multiple accept="image/*" onchange="handleImageFilesSelect(event)" 
+                                       class="w-full text-xs text-slate-500 file:mr-0 file:ml-2 file:py-2 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-gold-500 file:text-slate-950 hover:file:bg-gold-600 border border-slate-200 rounded-xl p-1 bg-slate-50 cursor-pointer">
+                            </div>
+
+                            <div>
+                                <label class="block text-[11px] font-bold text-slate-600 mb-1">أو إضافة رابط صورة خارجي (URL):</label>
+                                <div class="flex gap-2">
+                                    <input type="url" id="pImage" placeholder="https://..." class="w-full border border-slate-300 rounded-xl px-3 py-1.5 text-xs focus:ring-2 focus:ring-gold-500 outline-none">
+                                    <button type="button" onclick="addUrlToImagesList()" class="bg-slate-900 text-white text-xs px-3 rounded-xl font-bold hover:bg-gold-600 hover:text-slate-950 shrink-0">إضافة</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Image Previews Container -->
+                        <div id="imagePreviewsList" class="flex flex-wrap gap-3 pt-2">
+                            <!-- Dynamically injected preview thumbnails -->
                         </div>
                     </div>
 
@@ -877,8 +989,9 @@
                                 <th class="p-3">الصورة</th>
                                 <th class="p-3">الاسم</th>
                                 <th class="p-3">القسم</th>
+                                <th class="p-3">المقاسات</th>
                                 <th class="p-3">السعر</th>
-                                <th class="p-3">حالة التوفر</th>
+                                <th class="p-3">الحالة</th>
                                 <th class="p-3">العمليات</th>
                             </tr>
                         </thead>
@@ -889,7 +1002,7 @@
                 </div>
             </div>
 
-            <!-- TAB 2: ORDERS MANAGEMENT -->
+            <!-- TAB 3: ORDERS MANAGEMENT -->
             <div id="adminTabOrders" class="hidden space-y-4">
                 <div class="flex items-center justify-between">
                     <h4 class="font-bold text-slate-900 text-sm">سجل الطلبات الواردة للمتجر</h4>
@@ -905,7 +1018,7 @@
                                 <th class="p-3">المدينة / الهاتف</th>
                                 <th class="p-3">نوع الطلب / الإجمالي</th>
                                 <th class="p-3">الحالة</th>
-                                <th class="p-3">العمليات</th>
+                                <th class="p-3">العمليات والتواصل</th>
                             </tr>
                         </thead>
                         <tbody id="adminOrdersTable" class="divide-y divide-slate-100">
@@ -915,47 +1028,90 @@
                 </div>
             </div>
 
-            <!-- TAB 3: SHEIN CALCULATOR SETTINGS -->
+            <!-- TAB 4: SETTINGS & DATABASE CONFIG -->
             <div id="adminTabSettings" class="hidden space-y-6">
-                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-4 max-w-xl mx-auto">
-                    <h4 class="font-bold text-slate-900 text-sm border-b border-slate-200 pb-3 flex items-center gap-2">
-                        <i class="fa-solid fa-calculator text-purple-600"></i> إعدادات المتجر وحاسبة شي إن العامة
-                    </h4>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- SHEIN & Store Settings -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-4">
+                        <h4 class="font-bold text-slate-900 text-sm border-b border-slate-200 pb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-calculator text-purple-600"></i> إعدادات المتجر وحاسبة شي إن
+                        </h4>
 
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-1">كلمة مرور لوحة التحكم (Admin Passcode) *</label>
-                        <input type="text" id="settingAdminPasscode" value="1234" class="w-full border border-slate-300 rounded-xl p-3 text-xs md:text-sm focus:ring-2 focus:ring-gold-500 outline-none font-bold">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">كلمة مرور لوحة التحكم *</label>
+                            <input type="text" id="settingAdminPasscode" value="1234" class="w-full border border-slate-300 rounded-xl p-2.5 text-xs focus:ring-2 focus:ring-gold-500 outline-none font-bold">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">سعر صرف الدولار (د.ل) *</label>
+                            <input type="number" id="settingUsdRate" step="0.01" min="1" value="6.65" class="w-full border border-slate-300 rounded-xl p-2.5 text-xs focus:ring-2 focus:ring-gold-500 outline-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">تكلفة شحن القطعة الواحدة (د.ل) *</label>
+                            <input type="number" id="settingShippingPerItem" step="0.5" min="0" value="12.00" class="w-full border border-slate-300 rounded-xl p-2.5 text-xs focus:ring-2 focus:ring-gold-500 outline-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">العمولة الثابتة على الطلبية (د.ل) *</label>
+                            <input type="number" id="settingBaseProfit" step="1" min="0" value="25.00" class="w-full border border-slate-300 rounded-xl p-2.5 text-xs focus:ring-2 focus:ring-gold-500 outline-none">
+                        </div>
                     </div>
 
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-1">سعر صرف الدولار (د.ل) *</label>
-                        <input type="number" id="settingUsdRate" step="0.01" min="1" value="6.65" class="w-full border border-slate-300 rounded-xl p-3 text-xs md:text-sm focus:ring-2 focus:ring-gold-500 outline-none">
-                    </div>
+                    <!-- Marketing & Tracking Settings -->
+                    <div class="space-y-6">
+                        <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 space-y-4">
+                            <h4 class="font-bold text-slate-900 text-sm border-b border-blue-200 pb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-bullhorn text-blue-600"></i> إعدادات التسويق والتتبع
+                            </h4>
+                            
+                            <div>
+                                <label class="block text-[11px] font-bold text-slate-700 mb-1">رقم تتبع فيسبوك بيكسل (Meta Pixel ID)</label>
+                                <input type="text" id="settingMetaPixel" placeholder="مثال: 123456789012345" class="w-full border border-slate-300 rounded-xl p-2 text-xs focus:ring-2 focus:ring-blue-500 outline-none dir-ltr font-mono">
+                                <p class="text-[9px] text-slate-500 mt-1">تتبع الزيارات وعمليات الشراء لحملات فيسبوك وانستغرام.</p>
+                            </div>
 
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-1">تكلفة شحن القطعة الواحدة (د.ل) *</label>
-                        <input type="number" id="settingShippingPerItem" step="0.5" min="0" value="12.00" class="w-full border border-slate-300 rounded-xl p-3 text-xs md:text-sm focus:ring-2 focus:ring-gold-500 outline-none">
-                    </div>
+                            <div>
+                                <label class="block text-[11px] font-bold text-slate-700 mb-1">رقم تتبع جوجل (Google Analytics ID)</label>
+                                <input type="text" id="settingGoogleAnalytics" placeholder="مثال: G-XXXXXXXXXX" class="w-full border border-slate-300 rounded-xl p-2 text-xs focus:ring-2 focus:ring-blue-500 outline-none dir-ltr font-mono">
+                            </div>
+                        </div>
 
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-1">العمولة الثابتة على الطلبية (د.ل) *</label>
-                        <input type="number" id="settingBaseProfit" step="1" min="0" value="25.00" class="w-full border border-slate-300 rounded-xl p-3 text-xs md:text-sm focus:ring-2 focus:ring-gold-500 outline-none">
-                    </div>
+                        <div class="bg-amber-50 p-6 rounded-2xl border border-amber-100 space-y-4">
+                            <h4 class="font-bold text-slate-900 text-sm border-b border-amber-200 pb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-gift text-amber-600"></i> إشعارات العروض للزبائن
+                            </h4>
+                            
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" id="settingOfferActive" class="w-4 h-4 text-amber-600 rounded border-slate-300 focus:ring-amber-500">
+                                <span class="text-xs font-bold text-slate-700">تفعيل الإشعار المنبثق عند دخول المتجر</span>
+                            </label>
 
-                    <button onclick="saveSheinSettings()" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-xl text-xs transition shadow flex items-center justify-center gap-2">
+                            <div>
+                                <label class="block text-[11px] font-bold text-slate-700 mb-1">نص العرض المنبثق</label>
+                                <textarea id="settingOfferText" rows="2" placeholder="اكتب نص العرض هنا..." class="w-full border border-slate-300 rounded-xl p-2.5 text-xs focus:ring-2 focus:ring-amber-500 outline-none"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t border-slate-200 pt-6">
+                    <button onclick="saveSheinSettings()" class="w-full bg-slate-900 hover:bg-gold-600 hover:text-slate-950 text-white font-bold py-3.5 rounded-xl text-sm transition shadow flex items-center justify-center gap-2">
                         <i class="fa-solid fa-floppy-disk"></i>
-                        <span>حفظ الإعدادات وكلمة المرور بقاعدة البيانات</span>
+                        <span>حفظ كافة الإعدادات بقاعدة البيانات</span>
                     </button>
                 </div>
+
             </div>
 
         </div>
     </div>
 
-    <!-- Toast Notification Overlay -->
+    <!-- Toast Notification Container -->
     <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
 
-    <!-- Custom Confirmation Modal -->
+    <!-- Custom Confirm Modal -->
     <div id="customConfirmModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
         <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl text-center space-y-4">
             <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto text-xl">
@@ -970,32 +1126,45 @@
         </div>
     </div>
 
+    <!-- Firebase App Module Script -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, collection, doc, setDoc, getDoc, addDoc, updateDoc, deleteDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // Firebase Configuration & Setup
+        // Setup Application ID & Custom or Default Firebase Configuration
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'nova-style-app-2026';
-        const firebaseConfig = typeof __firebase_config !== 'undefined' 
-            ? JSON.parse(__firebase_config) 
-            : {
-                apiKey: "AIzaSyDummyKeyForFallbackNovaStyle",
-                authDomain: "nova-style-demo.firebaseapp.com",
-                projectId: "nova-style-demo",
-                storageBucket: "nova-style-demo.appspot.com",
-                messagingSenderId: "123456789",
-                appId: "1:123456789:web:abcdef123456"
-            };
+        const savedCustomConfig = localStorage.getItem('nova_custom_firebase_config');
+
+        let firebaseConfig;
+        if (savedCustomConfig) {
+            try {
+                firebaseConfig = JSON.parse(savedCustomConfig);
+            } catch (e) {
+                console.error("Invalid custom firebase config format", e);
+            }
+        }
+
+        if (!firebaseConfig) {
+            firebaseConfig = typeof __firebase_config !== 'undefined' 
+                ? JSON.parse(__firebase_config) 
+                : {
+                    apiKey: "AIzaSyDummyKeyForFallbackNovaStyle",
+                    authDomain: "nova-style-demo.firebaseapp.com",
+                    projectId: "nova-style-demo",
+                    storageBucket: "nova-style-demo.appspot.com",
+                    messagingSenderId: "123456789",
+                    appId: "1:123456789:web:abcdef123456"
+                };
+        }
 
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const db = getFirestore(app);
 
         let currentUser = null;
-        let isInitialSeededChecked = false;
 
-        // Global Application State
+        // Application State
         window.products = [];
         window.orders = [];
         window.cart = [];
@@ -1003,70 +1172,23 @@
         window.currentCategory = 'all';
         window.currentSort = 'featured';
         window.isAdminAuthenticated = false;
+        window.selectedQuickViewSize = null;
+        window.selectedQuickViewImage = null;
+        window.currentFormImages = []; // Stores image URLs or Base64 for product form
         window.customerUser = JSON.parse(localStorage.getItem('nova_customer_user')) || null;
+        
         window.sheinSettings = {
             usdRate: 6.65,
             shippingPerItem: 12.00,
             baseProfit: 25.00,
-            adminPasscode: "1234"
+            adminPasscode: "1234",
+            metaPixelId: "",
+            gaId: "",
+            offerActive: false,
+            offerText: "احصلي على خصم 10% بمناسبة الافتتاح والتوصيل مجاني!"
         };
 
-        // Initial default sample products (seeded only once on absolute first startup)
-        const defaultSampleProducts = [
-            {
-                name: "فستان نسائي كاجوال أنيق",
-                category: "women",
-                price: 240,
-                oldPrice: 280,
-                rating: 5.0,
-                reviewsCount: 22,
-                image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80",
-                fabric: "قطن كريب ناعم",
-                badge: "الأكثر مبيعاً 🔥",
-                isAvailable: true,
-                description: "فستان نسائي بتصميم عصري وأنيق يناسب الإطلالات اليومية والمناسبات، قماش عالي الجودة ومريح للغاية."
-            },
-            {
-                name: "طقم أطفال صيفي (بناتي/أولادي)",
-                category: "kids",
-                price: 110,
-                oldPrice: 140,
-                rating: 4.9,
-                reviewsCount: 18,
-                image: "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?auto=format&fit=crop&w=800&q=80",
-                fabric: "قطن 100% آمن للبشرة",
-                badge: "تشكيلة جديدة",
-                isAvailable: true,
-                description: "طقم أطفال قطني مريح جداً بألوان زاهية وتصاميم لطيفة تمنح طفلك حرية الحركة طوال اليوم."
-            },
-            {
-                name: "حقيبة يد نسائية فاخرة من Nova",
-                category: "acc",
-                price: 180,
-                oldPrice: 0,
-                rating: 4.8,
-                reviewsCount: 14,
-                image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80",
-                fabric: "جلد صناعي درجة أولى",
-                badge: "حصري",
-                isAvailable: true,
-                description: "حقيبة يد أنيقة بحجم مثالي مع تقسيمات داخلية عملية وحزام كتف قابل للتعديل."
-            },
-            {
-                name: "طقم منظمات مطبخ وديكور عصري",
-                category: "home",
-                price: 165,
-                oldPrice: 195,
-                rating: 5.0,
-                reviewsCount: 30,
-                image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80",
-                fabric: "أكريليك زجاجي مقاوم للصدمات",
-                badge: "عرض التوفير",
-                isAvailable: true,
-                description: "طقم منظمات فاخر للمطبخ والترتيب المنزلي بلمسات ديكور عملية تضفي ترتيباً وجمالاً لمطبخك."
-            }
-        ];
-
+        // Initialize Firebase Authentication & Realtime Firestore Sync
         async function initAuthAndStore() {
             try {
                 if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
@@ -1086,27 +1208,16 @@
             });
         }
 
+        let scriptsInjected = false;
+        
         function setupFirestoreListeners() {
             // 1. Listen to Products Collection
             const productsRef = collection(db, 'artifacts', appId, 'public', 'data', 'products');
             onSnapshot(productsRef, (snapshot) => {
-                if (snapshot.empty && !isInitialSeededChecked) {
-                    isInitialSeededChecked = true;
-                    // Check local flag so we don't re-seed if the user manually wiped all products
-                    const hasClearedBefore = localStorage.getItem('nova_user_cleared_products');
-                    if (!hasClearedBefore) {
-                        seedDefaultProducts();
-                    } else {
-                        window.products = [];
-                        renderProductsGrid();
-                        renderAdminProductsTable();
-                    }
-                } else {
-                    isInitialSeededChecked = true;
-                    window.products = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                    renderProductsGrid();
-                    renderAdminProductsTable();
-                }
+                window.products = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                renderProductsGrid();
+                renderAdminProductsTable();
+                updateStatsDashboard();
             }, (error) => {
                 console.error("Products listener error:", error);
             });
@@ -1116,6 +1227,7 @@
             onSnapshot(ordersRef, (snapshot) => {
                 window.orders = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
                 renderAdminOrdersTable();
+                updateStatsDashboard();
                 if (window.customerUser) renderCustomerOrders();
             }, (error) => {
                 console.error("Orders listener error:", error);
@@ -1125,8 +1237,10 @@
             const settingsDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'global_config');
             onSnapshot(settingsDocRef, (docSnap) => {
                 if (docSnap.exists()) {
-                    window.sheinSettings = docSnap.data();
+                    window.sheinSettings = { ...window.sheinSettings, ...docSnap.data() };
                     updateSheinUiSettings();
+                    injectMarketingScripts();
+                    checkOfferNotification();
                 } else {
                     setDoc(settingsDocRef, window.sheinSettings);
                 }
@@ -1135,12 +1249,71 @@
             });
         }
 
-        async function seedDefaultProducts() {
-            if (!currentUser) return;
-            const productsRef = collection(db, 'artifacts', appId, 'public', 'data', 'products');
-            for (const item of defaultSampleProducts) {
-                await addDoc(productsRef, { ...item, createdAt: Date.now() });
+        // --- Marketing & Tracking Injection ---
+        function injectMarketingScripts() {
+            if (scriptsInjected) return;
+            scriptsInjected = true;
+
+            // Inject Google Analytics
+            if (window.sheinSettings.gaId) {
+                let script = document.createElement('script');
+                script.src = `https://www.googletagmanager.com/gtag/js?id=${window.sheinSettings.gaId}`;
+                script.async = true;
+                document.head.appendChild(script);
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', window.sheinSettings.gaId);
+                window.gtag = gtag;
             }
+
+            // Inject Meta Pixel
+            if (window.sheinSettings.metaPixelId) {
+                !function(f,b,e,v,n,t,s)
+                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window, document,'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+                fbq('init', window.sheinSettings.metaPixelId);
+                fbq('track', 'PageView');
+                window.fbq = fbq;
+            }
+        }
+
+        function checkOfferNotification() {
+            if (window.sheinSettings.offerActive && window.sheinSettings.offerText) {
+                if (!sessionStorage.getItem('nova_offer_shown')) {
+                    setTimeout(() => {
+                        const modal = document.getElementById('offerModal');
+                        const textEl = document.getElementById('offerModalText');
+                        if(modal && textEl) {
+                            textEl.innerText = window.sheinSettings.offerText;
+                            modal.classList.remove('hidden');
+                        }
+                        sessionStorage.setItem('nova_offer_shown', 'true');
+                    }, 2500);
+                }
+            }
+        }
+
+        function updateStatsDashboard() {
+            const totalRev = window.orders.reduce((sum, o) => sum + (o.grandTotal || 0), 0);
+            const totalOrders = window.orders.length;
+            const pendingOrders = window.orders.filter(o => o.status === 'NEW').length;
+            const totalProducts = window.products.length;
+
+            const elRev = document.getElementById('statTotalRevenue');
+            const elTotOrd = document.getElementById('statTotalOrders');
+            const elPendOrd = document.getElementById('statPendingOrders');
+            const elTotProd = document.getElementById('statTotalProducts');
+
+            if (elRev) elRev.innerText = totalRev.toFixed(2) + ' د.ل';
+            if (elTotOrd) elTotOrd.innerText = totalOrders;
+            if (elPendOrd) elPendOrd.innerText = pendingOrders;
+            if (elTotProd) elTotProd.innerText = totalProducts;
         }
 
         function checkCustomerAuthState() {
@@ -1197,7 +1370,7 @@
             const phone = document.getElementById('authCustPhone').value.trim();
 
             if (!phone || phone.length < 9) {
-                showToast("يرجى إدخال رقم هاتف صحيح", "warning");
+                showToast("يرجى إدخال رقم هاتف ليبي صحيح", "warning");
                 return;
             }
 
@@ -1271,7 +1444,7 @@
                         </div>
                         <div class="text-left">
                             <span class="font-black text-gold-600 block">${o.grandTotal ? o.grandTotal.toFixed(2) : 0} د.ل</span>
-                            <span class="text-[10px] font-bold text-emerald-600">${o.status === 'NEW' ? 'قيد التجهيز' : 'مكتمل'}</span>
+                            <span class="text-[10px] font-bold ${o.status === 'DELIVERED' ? 'text-emerald-600' : 'text-amber-600'}">${o.status || 'قيد التجهيز'}</span>
                         </div>
                     </div>
                 `;
@@ -1279,20 +1452,18 @@
         }
 
         function updateSheinUiSettings() {
+            const s = window.sheinSettings;
             const badge = document.getElementById('sheinRateBadge');
-            if (badge) badge.innerText = `سعر الصرف الحالي: ${window.sheinSettings.usdRate} د.ل`;
+            if (badge) badge.innerText = `سعر الصرف الحالي: ${s.usdRate} د.ل`;
             
-            const passInput = document.getElementById('settingAdminPasscode');
-            if (passInput) passInput.value = window.sheinSettings.adminPasscode || "1234";
-
-            const rateInput = document.getElementById('settingUsdRate');
-            if (rateInput) rateInput.value = window.sheinSettings.usdRate;
-
-            const shipInput = document.getElementById('settingShippingPerItem');
-            if (shipInput) shipInput.value = window.sheinSettings.shippingPerItem;
-
-            const profitInput = document.getElementById('settingBaseProfit');
-            if (profitInput) profitInput.value = window.sheinSettings.baseProfit;
+            if (document.getElementById('settingAdminPasscode')) document.getElementById('settingAdminPasscode').value = s.adminPasscode || "1234";
+            if (document.getElementById('settingUsdRate')) document.getElementById('settingUsdRate').value = s.usdRate;
+            if (document.getElementById('settingShippingPerItem')) document.getElementById('settingShippingPerItem').value = s.shippingPerItem;
+            if (document.getElementById('settingBaseProfit')) document.getElementById('settingBaseProfit').value = s.baseProfit;
+            if (document.getElementById('settingMetaPixel')) document.getElementById('settingMetaPixel').value = s.metaPixelId || "";
+            if (document.getElementById('settingGoogleAnalytics')) document.getElementById('settingGoogleAnalytics').value = s.gaId || "";
+            if (document.getElementById('settingOfferActive')) document.getElementById('settingOfferActive').checked = s.offerActive || false;
+            if (document.getElementById('settingOfferText')) document.getElementById('settingOfferText').value = s.offerText || "";
 
             window.calculateSheinTotal();
         }
@@ -1374,26 +1545,34 @@
 
             grid.innerHTML = filtered.map(p => {
                 const isWish = window.wishlist.includes(p.id);
+                const sizesList = p.sizes && p.sizes.length > 0 ? p.sizes.join(', ') : 'قياس موحد';
+                const displayImg = (p.images && p.images.length > 0) ? p.images[0] : (p.image || 'https://placehold.co/600x800/1e293b/ffffff?text=Nova+Style');
+                const multiBadge = (p.images && p.images.length > 1) ? `<span class="absolute bottom-3 right-3 bg-slate-900/80 text-white text-[10px] px-2 py-0.5 rounded-full font-bold backdrop-blur"><i class="fa-solid fa-images ml-1"></i>${p.images.length} صور</span>` : '';
+
                 return `
                     <div class="bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl transition duration-300 flex flex-col justify-between group">
                         <div class="relative aspect-[3/4] overflow-hidden bg-slate-100">
-                            <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x800/1e293b/ffffff?text=Nova+Style'">
+                            <img src="${displayImg}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x800/1e293b/ffffff?text=Nova+Style'">
                             
                             ${p.badge ? `<span class="absolute top-3 right-3 bg-gradient-to-r from-gold-600 to-amber-500 text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full shadow-md">${p.badge}</span>` : ''}
-                            
+                            ${multiBadge}
+
                             <button onclick="window.toggleWishlist('${p.id}')" class="absolute top-3 left-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur hover:bg-white text-slate-700 hover:text-rose-500 flex items-center justify-center transition shadow-sm">
                                 <i class="${isWish ? 'fa-solid fa-heart text-rose-500' : 'fa-regular fa-heart'} text-sm"></i>
                             </button>
 
                             <button onclick="window.openQuickView('${p.id}')" class="absolute bottom-3 left-1/2 -translate-x-1/2 bg-slate-900/80 hover:bg-slate-900 text-white text-[11px] font-bold px-4 py-1.5 rounded-full backdrop-blur opacity-0 group-hover:opacity-100 transition duration-300 shadow">
-                                معاينة سريعة
+                                معاينة والمقاسات
                             </button>
                         </div>
 
                         <div class="p-4 flex flex-col flex-1 justify-between">
                             <div>
-                                <span class="text-[10px] font-bold text-gold-600 uppercase tracking-widest">${p.fabric || 'Nova Style'}</span>
-                                <h3 class="font-bold text-slate-900 text-xs sm:text-sm mt-0.5 line-clamp-2">${p.name}</h3>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-[10px] font-bold text-gold-600 uppercase tracking-widest">${p.fabric || 'Nova Style'}</span>
+                                    <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-bold">المقاس: ${sizesList}</span>
+                                </div>
+                                <h3 class="font-bold text-slate-900 text-xs sm:text-sm mt-1 line-clamp-2">${p.name}</h3>
                             </div>
 
                             <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
@@ -1402,9 +1581,9 @@
                                     ${p.oldPrice && p.oldPrice > p.price ? `<span class="text-[10px] text-slate-400 line-through mr-1">${p.oldPrice} د.ل</span>` : ''}
                                 </div>
 
-                                <button onclick="window.addToCart('${p.id}')" class="bg-gold-500 hover:bg-gold-600 text-slate-950 font-extrabold text-xs px-3.5 py-2 rounded-xl transition shadow flex items-center gap-1">
+                                <button onclick="window.openQuickView('${p.id}')" class="bg-gold-500 hover:bg-gold-600 text-slate-950 font-extrabold text-xs px-3.5 py-2 rounded-xl transition shadow flex items-center gap-1">
                                     <i class="fa-solid fa-cart-plus"></i>
-                                    <span>إضافة</span>
+                                    <span>اختر مقاسك</span>
                                 </button>
                             </div>
                         </div>
@@ -1413,41 +1592,51 @@
             }).join('');
         }
 
-        window.addToCart = function(productId) {
+        window.addToCart = function(productId, sizeChoice = null) {
             const product = window.products.find(p => p.id === productId);
             if (!product) return;
 
-            const existing = window.cart.find(item => item.id === productId);
+            const selectedSize = sizeChoice || (product.sizes && product.sizes.length > 0 ? product.sizes[0] : 'قياس موحد');
+            const cartItemId = `${productId}_${selectedSize}`;
+            const displayImg = (product.images && product.images.length > 0) ? product.images[0] : (product.image || '');
+
+            const existing = window.cart.find(item => item.cartItemId === cartItemId);
             if (existing) {
                 existing.qty += 1;
             } else {
                 window.cart.push({
+                    cartItemId,
                     id: product.id,
                     name: product.name,
                     price: product.price,
-                    image: product.image,
+                    image: displayImg,
+                    size: selectedSize,
                     qty: 1
                 });
             }
 
+            // Marketing Tracking Call (Add to Cart)
+            if (window.gtag) gtag('event', 'add_to_cart', { currency: 'LYD', value: product.price, items: [{ item_name: product.name, item_id: product.id }] });
+            if (window.fbq) fbq('track', 'AddToCart', { currency: 'LYD', value: product.price, content_name: product.name, content_ids: [product.id] });
+
             updateCartUI();
-            showToast(`تمت إضافة "${product.name}" لسلة التسوق`, "success");
+            showToast(`تمت إضافة "${product.name}" [مقاس: ${selectedSize}] لسلة التسوق`, "success");
         };
 
-        window.updateCartQty = function(productId, delta) {
-            const item = window.cart.find(i => i.id === productId);
+        window.updateCartQty = function(cartItemId, delta) {
+            const item = window.cart.find(i => i.cartItemId === cartItemId);
             if (!item) return;
 
             item.qty += delta;
             if (item.qty <= 0) {
-                window.cart = window.cart.filter(i => i.id !== productId);
+                window.cart = window.cart.filter(i => i.cartItemId !== cartItemId);
             }
 
             updateCartUI();
         };
 
-        window.removeFromCart = function(productId) {
-            window.cart = window.cart.filter(i => i.id !== productId);
+        window.removeFromCart = function(cartItemId) {
+            window.cart = window.cart.filter(i => i.cartItemId !== cartItemId);
             updateCartUI();
         };
 
@@ -1479,14 +1668,17 @@
                     <img src="${item.image}" alt="${item.name}" class="w-14 h-14 rounded-lg object-cover">
                     <div class="flex-1">
                         <h4 class="font-bold text-xs text-slate-900 line-clamp-1">${item.name}</h4>
-                        <span class="text-xs font-black text-gold-600">${item.price} د.ل</span>
-                        <div class="flex items-center gap-2 mt-1">
-                            <button onclick="window.updateCartQty('${item.id}', -1)" class="w-5 h-5 bg-white border border-slate-200 text-slate-700 rounded flex items-center justify-center font-bold text-xs">-</button>
+                        <div class="flex items-center gap-2 mt-0.5">
+                            <span class="text-xs font-black text-gold-600">${item.price} د.ل</span>
+                            <span class="text-[10px] bg-slate-200 text-slate-800 px-1.5 py-0.5 rounded font-bold">مقاس: ${item.size}</span>
+                        </div>
+                        <div class="flex items-center gap-2 mt-1.5">
+                            <button onclick="window.updateCartQty('${item.cartItemId}', -1)" class="w-5 h-5 bg-white border border-slate-200 text-slate-700 rounded flex items-center justify-center font-bold text-xs">-</button>
                             <span class="text-xs font-bold">${item.qty}</span>
-                            <button onclick="window.updateCartQty('${item.id}', 1)" class="w-5 h-5 bg-white border border-slate-200 text-slate-700 rounded flex items-center justify-center font-bold text-xs">+</button>
+                            <button onclick="window.updateCartQty('${item.cartItemId}', 1)" class="w-5 h-5 bg-white border border-slate-200 text-slate-700 rounded flex items-center justify-center font-bold text-xs">+</button>
                         </div>
                     </div>
-                    <button onclick="window.removeFromCart('${item.id}')" class="text-slate-400 hover:text-rose-500 text-sm">
+                    <button onclick="window.removeFromCart('${item.cartItemId}')" class="text-slate-400 hover:text-rose-500 text-sm">
                         <i class="fa-solid fa-trash"></i>
                     </button>
                 </div>
@@ -1512,12 +1704,51 @@
             const p = window.products.find(item => item.id === productId);
             if (!p) return;
 
+            const sizes = p.sizes && p.sizes.length > 0 ? p.sizes : ['قياس موحد'];
+            window.selectedQuickViewSize = sizes[0];
+
+            const imagesList = (p.images && p.images.length > 0) ? p.images : [p.image || 'https://placehold.co/600x800/1e293b/ffffff?text=Nova+Style'];
+            window.selectedQuickViewImage = imagesList[0];
+
             const container = document.getElementById('quickViewContent');
             if (!container) return;
 
+            const renderSizeButtons = () => {
+                return sizes.map(size => {
+                    const isSelected = window.selectedQuickViewSize === size;
+                    return `
+                        <button type="button" onclick="window.selectSizeInQuickView('${size}')" class="quick-size-btn px-3.5 py-2 border rounded-xl text-xs font-bold transition ${isSelected ? 'border-gold-500 bg-gold-50 text-gold-700 ring-2 ring-gold-400/30' : 'border-slate-200 text-slate-700 hover:border-gold-500'}">
+                            ${size}
+                        </button>
+                    `;
+                }).join('');
+            };
+
+            const renderImageThumbnails = () => {
+                if (imagesList.length <= 1) return '';
+                return `
+                    <div class="flex gap-2 mt-3 overflow-x-auto pb-1">
+                        ${imagesList.map(img => `
+                            <button onclick="window.switchQuickViewMainImage('${img}')" class="w-14 h-14 rounded-xl overflow-hidden border-2 transition shrink-0 ${window.selectedQuickViewImage === img ? 'border-gold-500 ring-2 ring-gold-400/30' : 'border-slate-200 hover:border-gold-400'}">
+                                <img src="${img}" class="w-full h-full object-cover">
+                            </button>
+                        `).join('')}
+                    </div>
+                `;
+            };
+
+            // Social Sharing URLs
+            const siteUrl = "https://novastyle.com.ly";
+            const shareText = encodeURIComponent(`تسوقي ${p.name} من متجر Nova Style بسعر ${p.price} د.ل فقط! 🛍️✨\n${siteUrl}`);
+            const fbShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(siteUrl)}&quote=${shareText}`;
+            const waShareUrl = `https://wa.me/?text=${shareText}`;
+
             container.innerHTML = `
-                <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-slate-100">
-                    <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover">
+                <div>
+                    <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-slate-100 shadow-inner">
+                        <img id="quickViewMainDisplayImg" src="${window.selectedQuickViewImage}" alt="${p.name}" class="w-full h-full object-cover">
+                    </div>
+                    ${renderImageThumbnails()}
                 </div>
                 <div class="flex flex-col justify-between">
                     <div>
@@ -1532,24 +1763,35 @@
 
                         <p class="text-xs text-slate-600 mt-4 leading-relaxed">${p.description || p.name}</p>
 
-                        <div class="mt-4">
-                            <label class="block text-xs font-bold text-slate-700 mb-2">المقاسات المتوفرة:</label>
-                            <div class="flex gap-2">
-                                <button class="px-3 py-1.5 border border-gold-500 bg-gold-50 text-gold-700 rounded-lg text-xs font-bold">52</button>
-                                <button class="px-3 py-1.5 border border-slate-200 rounded-lg text-xs font-bold hover:border-gold-500">54</button>
-                                <button class="px-3 py-1.5 border border-slate-200 rounded-lg text-xs font-bold hover:border-gold-500">56</button>
-                                <button class="px-3 py-1.5 border border-slate-200 rounded-lg text-xs font-bold hover:border-gold-500">58</button>
+                        <div class="mt-5 bg-slate-50 p-3.5 rounded-2xl border border-slate-100">
+                            <label class="block text-xs font-bold text-slate-800 mb-2">المقاسات المتوفرة (انقري لاختيار المقاس):</label>
+                            <div id="quickViewSizesContainer" class="flex flex-wrap gap-2">
+                                ${renderSizeButtons()}
                             </div>
                         </div>
                     </div>
 
-                    <div class="mt-6 pt-4 border-t flex items-center justify-between">
-                        <div>
-                            <span class="text-xl font-black text-slate-900">${p.price} د.ل</span>
+                    <div class="mt-6 flex flex-col gap-4">
+                        <div class="pt-4 border-t flex items-center justify-between">
+                            <div>
+                                <span class="text-xl font-black text-slate-900">${p.price} د.ل</span>
+                            </div>
+                            <button onclick="window.addToCart('${p.id}', window.selectedQuickViewSize); window.closeQuickView();" class="bg-gold-500 hover:bg-gold-600 text-slate-950 font-extrabold px-6 py-2.5 rounded-xl shadow transition text-xs flex items-center gap-2">
+                                <i class="fa-solid fa-cart-plus"></i>
+                                <span>إضافة للسلة بالمقاس المختار</span>
+                            </button>
                         </div>
-                        <button onclick="window.addToCart('${p.id}'); window.closeQuickView();" class="bg-gold-500 hover:bg-gold-600 text-slate-950 font-extrabold px-6 py-2.5 rounded-xl shadow transition text-xs">
-                            أضفي لسلة التسوق
-                        </button>
+                        
+                        <!-- Social Sharing Links -->
+                        <div class="flex items-center justify-center gap-3 pt-2">
+                            <span class="text-[10px] font-bold text-slate-500">مشاركة المنتج:</span>
+                            <a href="${fbShareUrl}" target="_blank" class="w-8 h-8 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white flex items-center justify-center transition shadow-sm" title="مشاركة على فيسبوك">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="${waShareUrl}" target="_blank" class="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white flex items-center justify-center transition shadow-sm" title="مشاركة على واتساب">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             `;
@@ -1557,9 +1799,122 @@
             document.getElementById('quickViewModal').classList.remove('hidden');
         };
 
+        window.switchQuickViewMainImage = function(imgUrl) {
+            window.selectedQuickViewImage = imgUrl;
+            const mainImg = document.getElementById('quickViewMainDisplayImg');
+            if (mainImg) mainImg.src = imgUrl;
+        };
+
+        window.selectSizeInQuickView = function(size) {
+            window.selectedQuickViewSize = size;
+            const container = document.getElementById('quickViewSizesContainer');
+            if (!container) return;
+
+            const p = window.products.find(item => item.sizes && item.sizes.includes(size));
+            const sizes = p && p.sizes ? p.sizes : [size];
+
+            container.innerHTML = sizes.map(s => {
+                const isSelected = window.selectedQuickViewSize === s;
+                return `
+                    <button type="button" onclick="window.selectSizeInQuickView('${s}')" class="quick-size-btn px-3.5 py-2 border rounded-xl text-xs font-bold transition ${isSelected ? 'border-gold-500 bg-gold-50 text-gold-700 ring-2 ring-gold-400/30' : 'border-slate-200 text-slate-700 hover:border-gold-500'}">
+                        ${s}
+                    </button>
+                `;
+            }).join('');
+        };
+
         window.closeQuickView = function() {
             document.getElementById('quickViewModal').classList.add('hidden');
         };
+
+        // --- Image File Upload and Processing Handlers ---
+        window.handleImageFilesSelect = function(e) {
+            const files = Array.from(e.target.files);
+            if (files.length === 0) return;
+
+            files.forEach(file => {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    compressAndAddImage(event.target.result);
+                };
+                reader.readAsDataURL(file);
+            });
+        };
+
+        function compressAndAddImage(dataUrl) {
+            const img = new Image();
+            img.onload = function() {
+                const canvas = document.createElement('canvas');
+                const maxDim = 800;
+                let width = img.width;
+                let height = img.height;
+
+                if (width > height && width > maxDim) {
+                    height = Math.round((height * maxDim) / width);
+                    width = maxDim;
+                } else if (height > maxDim) {
+                    width = Math.round((width * maxDim) / height);
+                    height = maxDim;
+                }
+
+                canvas.width = width;
+                canvas.height = height;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, width, height);
+
+                const compressedBase64 = canvas.toDataURL('image/jpeg', 0.75);
+                window.currentFormImages.push(compressedBase64);
+                renderImagePreviewsInForm();
+            };
+            img.src = dataUrl;
+        }
+
+        window.addUrlToImagesList = function() {
+            const urlInput = document.getElementById('pImage');
+            const val = urlInput ? urlInput.value.trim() : '';
+
+            if (val) {
+                window.currentFormImages.push(val);
+                urlInput.value = '';
+                renderImagePreviewsInForm();
+                showToast("تمت إضافة رابط الصورة القائمة", "success");
+            }
+        };
+
+        window.removeFormImage = function(index) {
+            window.currentFormImages.splice(index, 1);
+            renderImagePreviewsInForm();
+        };
+
+        window.setFormMainImage = function(index) {
+            if (index > 0 && index < window.currentFormImages.length) {
+                const selected = window.currentFormImages.splice(index, 1)[0];
+                window.currentFormImages.unshift(selected); // Move to first position
+                renderImagePreviewsInForm();
+                showToast("تم تعيين هذه الصورة كصورة رئيسية للمنتج", "info");
+            }
+        };
+
+        function renderImagePreviewsInForm() {
+            const container = document.getElementById('imagePreviewsList');
+            if (!container) return;
+
+            if (window.currentFormImages.length === 0) {
+                container.innerHTML = `<p class="text-[11px] text-slate-400">لم يتم اختيار أي صور بعد.</p>`;
+                return;
+            }
+
+            container.innerHTML = window.currentFormImages.map((img, idx) => `
+                <div class="relative w-20 h-20 rounded-xl overflow-hidden border ${idx === 0 ? 'border-gold-500 ring-2 ring-gold-400/40' : 'border-slate-200'} group">
+                    <img src="${img}" class="w-full h-full object-cover">
+                    ${idx === 0 ? `<span class="absolute top-0 right-0 left-0 bg-gold-600 text-slate-950 text-[8px] font-black text-center py-0.5">رئيسية</span>` : ''}
+                    <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center gap-1">
+                        ${idx !== 0 ? `<button type="button" onclick="window.setFormMainImage(${idx})" class="w-6 h-6 bg-gold-500 text-slate-950 rounded-full flex items-center justify-center text-[10px]" title="اجعلها رئيسية"><i class="fa-solid fa-star"></i></button>` : ''}
+                        <button type="button" onclick="window.removeFormImage(${idx})" class="w-6 h-6 bg-rose-600 text-white rounded-full flex items-center justify-center text-[10px]" title="حذف الصورة"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+            `).join('');
+        }
 
         window.calculateSheinTotal = function() {
             const usdVal = parseFloat(document.getElementById('sheinCartPrice')?.value) || 0;
@@ -1597,14 +1952,13 @@
                 return;
             }
 
-            const rate = window.sheinSettings.usdRate || 8.65;
+            const rate = window.sheinSettings.usdRate || 6.65;
             const shipPerItem = window.sheinSettings.shippingPerItem || 12.00;
             const baseProfit = window.sheinSettings.baseProfit || 25.00;
 
             const grandTotal = (usdVal * rate) + (itemsVal * shipPerItem) + baseProfit;
             const deposit = grandTotal * 0.30;
 
-            // Register Order in Cloud Firestore
             if (currentUser) {
                 const ordersRef = collection(db, 'artifacts', appId, 'public', 'data', 'orders');
                 await addDoc(ordersRef, {
@@ -1622,7 +1976,7 @@
             }
 
             const msg = `*طلب جديد - حاسبة شي إن (Nova Style)* 🛍️%0A%0A` +
-                        `*روابط/تفاصيل السلة:* ${encodeURIComponent(links || 'مرفق بالسلة')}%0A` +
+                        `*روابط/تفاصيل السلة والمقاسات:* ${encodeURIComponent(links || 'مرفق بالسلة')}%0A` +
                         `*السعر بالدولار:* $${usdVal}%0A` +
                         `*عدد القطع:* ${itemsVal}%0A` +
                         `*المجموع النهائي:* ${grandTotal.toFixed(2)} د.ل%0A` +
@@ -1641,7 +1995,6 @@
             window.toggleCartDrawer();
             window.calculateCheckoutTotals();
 
-            // Auto Pre-fill from Customer Account if Logged in
             if (window.customerUser && window.customerUser.isLoggedIn) {
                 const nameInput = document.getElementById('custName');
                 const phoneInput = document.getElementById('custPhone');
@@ -1693,7 +2046,7 @@
             const subtotal = window.cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
             const grandTotal = subtotal + delivery;
 
-            // Save order in Cloud Firestore
+            // Save order to Firestore
             if (currentUser) {
                 const ordersRef = collection(db, 'artifacts', appId, 'public', 'data', 'orders');
                 await addDoc(ordersRef, {
@@ -1712,7 +2065,11 @@
                 });
             }
 
-            let itemsText = window.cart.map(i => `• ${i.name} (العدد: ${i.qty}) - ${(i.price * i.qty).toFixed(2)} د.ل`).join('%0A');
+            // Marketing Tracking Call (Purchase)
+            if (window.gtag) gtag('event', 'purchase', { currency: 'LYD', value: grandTotal });
+            if (window.fbq) fbq('track', 'Purchase', { currency: 'LYD', value: grandTotal });
+
+            let itemsText = window.cart.map(i => `• ${i.name} [مقاس: ${i.size}] (العدد: ${i.qty}) - ${(i.price * i.qty).toFixed(2)} د.ل`).join('%0A');
 
             let msg = `*طلب جديد - متجر Nova Style* 🛍️%0A%0A` +
                       `*اسم الزبون/ة:* ${name}%0A` +
@@ -1720,13 +2077,13 @@
                       `*المدينة:* ${city}%0A` +
                       `*العنوان:* ${address}%0A` +
                       `*طريقة الدفع:* ${payment}%0A%0A` +
-                      `*الطلبات:*%0A${itemsText}%0A%0A` +
+                      `*الطلبات والمقاسات:*%0A${itemsText}%0A%0A` +
                       `*مجموع الطلبات:* ${subtotal.toFixed(2)} د.ل%0A` +
                       `*رسوم التوصيل:* ${delivery.toFixed(2)} د.ل%0A` +
                       `*المبلغ الإجمالي:* ${grandTotal.toFixed(2)} د.ل%0A%0A` +
                       `يرجى تأكيد الاستلام والتجـهيز للشحن. شكراً لكم!`;
 
-            window.open(`https://wa.me/218912084588?text=${msg}`, '_blank');
+            window.open(`https://wa.me/218916188886?text=${msg}`, '_blank');
             
             window.cart = [];
             updateCartUI();
@@ -1738,6 +2095,7 @@
             if (window.isAdminAuthenticated) {
                 renderAdminProductsTable();
                 renderAdminOrdersTable();
+                updateStatsDashboard();
                 document.getElementById('adminModal').classList.remove('hidden');
             } else {
                 document.getElementById('adminAuthPasscode').value = '';
@@ -1760,6 +2118,7 @@
                 window.closeAdminAuthModal();
                 renderAdminProductsTable();
                 renderAdminOrdersTable();
+                updateStatsDashboard();
                 document.getElementById('adminModal').classList.remove('hidden');
                 showToast("تم التحقق بنجاح والدخول للوحة التحكم", "success");
             } else {
@@ -1773,7 +2132,7 @@
         };
 
         window.switchAdminTab = function(tabName) {
-            ['Products', 'Orders', 'Settings'].forEach(t => {
+            ['Stats', 'Products', 'Orders', 'Settings'].forEach(t => {
                 const el = document.getElementById(`adminTab${t}`);
                 const btn = document.getElementById(`adminTab${t}Btn`);
                 if (t.toLowerCase() === tabName) {
@@ -1798,9 +2157,15 @@
             const price = parseFloat(document.getElementById('pPrice').value);
             const oldPrice = parseFloat(document.getElementById('pOldPrice').value) || 0;
             const fabric = document.getElementById('pFabric').value || "خامة فاخرة";
-            const image = document.getElementById('pImage').value;
             const badge = document.getElementById('pBadge').value;
             const description = document.getElementById('pDescription').value || name;
+
+            const sizesRaw = document.getElementById('pSizes').value;
+            const sizes = sizesRaw ? sizesRaw.split(',').map(s => s.trim()).filter(Boolean) : ['قياس موحد'];
+
+            const images = window.currentFormImages.length > 0 
+                ? window.currentFormImages 
+                : ['https://placehold.co/600x800/1e293b/ffffff?text=Nova+Style'];
 
             const productData = {
                 name,
@@ -1808,7 +2173,9 @@
                 price,
                 oldPrice,
                 fabric,
-                image,
+                image: images[0],
+                images: images,
+                sizes,
                 badge: badge || "جديد",
                 description,
                 isAvailable: true,
@@ -1820,7 +2187,7 @@
             if (editId) {
                 const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'products', editId);
                 await updateDoc(docRef, productData);
-                showToast("تم تعديل المنتج بنجاح في قاعدة البيانات", "success");
+                showToast("تم تعديل المنتج والصور والمقاسات بنجاح بقاعدة البيانات", "success");
             } else {
                 await addDoc(productsRef, {
                     ...productData,
@@ -1828,7 +2195,7 @@
                     reviewsCount: 1,
                     createdAt: Date.now()
                 });
-                showToast("تمت إضافة المنتج الجديد لقاعدة البيانات", "success");
+                showToast("تمت إضافة المنتج الجديد مع الصور لقاعدة البيانات", "success");
             }
 
             window.cancelEdit();
@@ -1844,11 +2211,14 @@
             document.getElementById('pPrice').value = p.price;
             document.getElementById('pOldPrice').value = p.oldPrice || '';
             document.getElementById('pFabric').value = p.fabric || '';
-            document.getElementById('pImage').value = p.image;
             document.getElementById('pBadge').value = p.badge || '';
+            document.getElementById('pSizes').value = p.sizes ? p.sizes.join(', ') : '';
             document.getElementById('pDescription').value = p.description || '';
 
-            document.getElementById('formTitle').innerHTML = `<i class="fa-solid fa-pen-to-square"></i> تعديل المنتج: ${p.name}`;
+            window.currentFormImages = (p.images && p.images.length > 0) ? [...p.images] : (p.image ? [p.image] : []);
+            renderImagePreviewsInForm();
+
+            document.getElementById('formTitle').innerHTML = `<i class="fa-solid fa-pen-to-square"></i> تعديل المنتج والصور: ${p.name}`;
             document.getElementById('btnSubmitText').innerText = "حفظ التعديلات بقاعدة البيانات";
             window.switchAdminTab('products');
         };
@@ -1863,17 +2233,13 @@
         };
 
         window.deleteAllProducts = function() {
-            showConfirm("مسح جميع المنتجات العينة", "هل أنت تأكد من مسح كافة المنتجات العينة البدئية لتبدأ برفع منتجاتك الخاصة من الصفر؟", async () => {
+            showConfirm("مسح جميع المنتجات", "هل أنت تأكد من مسح كافة المنتجات الحالية من قاعدة البيانات؟", async () => {
                 if (!currentUser) return;
-                localStorage.setItem('nova_user_cleared_products', 'true');
                 for (const p of window.products) {
                     const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'products', p.id);
                     await deleteDoc(docRef);
                 }
-                window.products = [];
-                renderProductsGrid();
-                renderAdminProductsTable();
-                showToast("تم مسح كافة المنتجات بنجاح، يمكنك الآن البدء بإضافة منتجاتك الخاصة", "success");
+                showToast("تم مسح كافة المنتجات بنجاح", "success");
             });
         };
 
@@ -1887,6 +2253,8 @@
         window.cancelEdit = function() {
             document.getElementById('productForm').reset();
             document.getElementById('editProductId').value = '';
+            window.currentFormImages = [];
+            renderImagePreviewsInForm();
             document.getElementById('formTitle').innerHTML = `<i class="fa-solid fa-circle-plus"></i> إضافة منتج جديد للمتجر`;
             document.getElementById('btnSubmitText').innerText = "حفظ المنتج بـ Cloud Firestore";
         };
@@ -1898,7 +2266,7 @@
             if (!tableBody) return;
 
             if (window.products.length === 0) {
-                tableBody.innerHTML = `<tr><td colspan="6" class="p-6 text-center text-slate-400">لا توجد منتجات مسجلة حالياً. استخدم النموذج أعلاه لإضافة أول منتج!</td></tr>`;
+                tableBody.innerHTML = `<tr><td colspan="7" class="p-6 text-center text-slate-400">لا توجد منتجات مسجلة حالياً. أضف أوَّل منتج من النموذج أعلاه!</td></tr>`;
                 return;
             }
 
@@ -1909,31 +2277,39 @@
                 home: "أدوات منزلية"
             };
 
-            tableBody.innerHTML = window.products.map(p => `
-                <tr class="hover:bg-slate-50">
-                    <td class="p-3">
-                        <img src="${p.image}" alt="${p.name}" class="w-10 h-10 rounded-lg object-cover" onerror="this.src='https://placehold.co/100x100/1e293b/ffffff?text=Nova'">
-                    </td>
-                    <td class="p-3 font-bold text-slate-900">${p.name}</td>
-                    <td class="p-3 text-slate-600">${categoryNames[p.category] || p.category}</td>
-                    <td class="p-3 font-bold text-gold-600">${p.price} د.ل</td>
-                    <td class="p-3">
-                        <button onclick="window.toggleProductAvailability('${p.id}', ${p.isAvailable !== false})" class="px-2.5 py-1 rounded-full text-[10px] font-bold ${p.isAvailable !== false ? 'bg-emerald-100 text-emerald-700' : 'bg-rose-100 text-rose-700'}">
-                            ${p.isAvailable !== false ? 'متوفر بالمخزن' : 'نفد المخزون'}
-                        </button>
-                    </td>
-                    <td class="p-3">
-                        <div class="flex items-center gap-2">
-                            <button onclick="window.editProduct('${p.id}')" class="p-1.5 text-blue-600 hover:bg-blue-50 rounded" title="تعديل">
-                                <i class="fa-solid fa-pen-to-square"></i>
+            tableBody.innerHTML = window.products.map(p => {
+                const sizesBadge = p.sizes && p.sizes.length > 0 ? p.sizes.join(', ') : 'قياس موحد';
+                const displayImg = (p.images && p.images.length > 0) ? p.images[0] : (p.image || '');
+                const imgCount = (p.images && p.images.length > 1) ? `<span class="block text-[9px] text-gold-600 font-bold mt-0.5">${p.images.length} صور</span>` : '';
+
+                return `
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-3">
+                            <img src="${displayImg}" alt="${p.name}" class="w-10 h-10 rounded-lg object-cover" onerror="this.src='https://placehold.co/100x100/1e293b/ffffff?text=Nova'">
+                            ${imgCount}
+                        </td>
+                        <td class="p-3 font-bold text-slate-900">${p.name}</td>
+                        <td class="p-3 text-slate-600">${categoryNames[p.category] || p.category}</td>
+                        <td class="p-3"><span class="bg-slate-200 text-slate-800 px-2 py-0.5 rounded text-[10px] font-bold">${sizesBadge}</span></td>
+                        <td class="p-3 font-bold text-gold-600">${p.price} د.ل</td>
+                        <td class="p-3">
+                            <button onclick="window.toggleProductAvailability('${p.id}', ${p.isAvailable !== false})" class="px-2.5 py-1 rounded-full text-[10px] font-bold ${p.isAvailable !== false ? 'bg-emerald-100 text-emerald-700' : 'bg-rose-100 text-rose-700'}">
+                                ${p.isAvailable !== false ? 'متوفر بالمخزن' : 'نفد المخزون'}
                             </button>
-                            <button onclick="window.deleteProduct('${p.id}')" class="p-1.5 text-rose-600 hover:bg-rose-50 rounded" title="حذف">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-            `).join('');
+                        </td>
+                        <td class="p-3">
+                            <div class="flex items-center gap-2">
+                                <button onclick="window.editProduct('${p.id}')" class="p-1.5 text-blue-600 hover:bg-blue-50 rounded" title="تعديل">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </button>
+                                <button onclick="window.deleteProduct('${p.id}')" class="p-1.5 text-rose-600 hover:bg-rose-50 rounded" title="حذف">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
         }
 
         function renderAdminOrdersTable() {
@@ -1950,6 +2326,13 @@
             tableBody.innerHTML = window.orders.map(o => {
                 const dateStr = new Date(o.createdAt || Date.now()).toLocaleDateString('ar-LY');
                 const isShein = o.type === 'SHEIN_CALCULATOR';
+                const statusMap = {
+                    'NEW': { label: 'جديد', class: 'bg-amber-100 text-amber-800' },
+                    'SHIPPED': { label: 'قيد التوصيل', class: 'bg-blue-100 text-blue-800' },
+                    'DELIVERED': { label: 'تم التسليم', class: 'bg-emerald-100 text-emerald-800' }
+                };
+                const statusInfo = statusMap[o.status] || statusMap['NEW'];
+
                 return `
                     <tr class="hover:bg-slate-50">
                         <td class="p-3 font-bold text-slate-900">
@@ -1960,19 +2343,36 @@
                         <td class="p-3 text-slate-600">${o.city || 'ليبيا'} • ${o.customerPhone || 'N/A'}</td>
                         <td class="p-3 font-black text-emerald-600">${o.grandTotal ? o.grandTotal.toFixed(2) : '0'} د.ل</td>
                         <td class="p-3">
-                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold ${o.status === 'NEW' ? 'bg-amber-100 text-amber-800' : 'bg-emerald-100 text-emerald-800'}">
-                                ${o.status === 'NEW' ? 'طلب جديد' : 'مكتمل'}
-                            </span>
+                            <button onclick="window.cycleOrderStatus('${o.id}', '${o.status || 'NEW'}')" class="px-2.5 py-1 rounded-full text-[10px] font-bold ${statusInfo.class}">
+                                ${statusInfo.label}
+                            </button>
                         </td>
                         <td class="p-3">
-                            <button onclick="window.deleteOrder('${o.id}')" class="p-1.5 text-rose-600 hover:bg-rose-50 rounded" title="حذف الطلب">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
+                            <div class="flex items-center gap-2">
+                                ${o.customerPhone ? `
+                                    <a href="https://wa.me/218${o.customerPhone.replace(/^0/, '')}?text=${encodeURIComponent(`أهلاً بكِ في Nova Style! يسعدنا إعلامكِ بتحديث حالة طلبك رقم #${o.id.substring(0, 6)} إلى: ${statusInfo.label}`)}" target="_blank" class="p-1.5 text-emerald-600 hover:bg-emerald-50 rounded" title="تواصل عبر الواتساب">
+                                        <i class="fa-brands fa-whatsapp text-base"></i>
+                                    </a>
+                                ` : ''}
+                                <button onclick="window.deleteOrder('${o.id}')" class="p-1.5 text-rose-600 hover:bg-rose-50 rounded" title="حذف الطلب">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </div>
                         </td>
                     </tr>
                 `;
             }).join('');
         }
+
+        window.cycleOrderStatus = async function(id, currentStatus) {
+            if (!currentUser) return;
+            const nextStatusMap = { 'NEW': 'SHIPPED', 'SHIPPED': 'DELIVERED', 'DELIVERED': 'NEW' };
+            const nextStatus = nextStatusMap[currentStatus] || 'NEW';
+            
+            const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'orders', id);
+            await updateDoc(docRef, { status: nextStatus });
+            showToast("تم تحديث حالة الطلب", "success");
+        };
 
         window.deleteOrder = function(id) {
             showConfirm("حذف الطلب", "هل أنت تأكد من حذف هذا الطلب من السجل؟", async () => {
@@ -1990,6 +2390,11 @@
             const usdRate = parseFloat(document.getElementById('settingUsdRate').value) || 6.65;
             const shippingPerItem = parseFloat(document.getElementById('settingShippingPerItem').value) || 12.00;
             const baseProfit = parseFloat(document.getElementById('settingBaseProfit').value) || 25.00;
+            
+            const metaPixelId = document.getElementById('settingMetaPixel').value.trim();
+            const gaId = document.getElementById('settingGoogleAnalytics').value.trim();
+            const offerActive = document.getElementById('settingOfferActive').checked;
+            const offerText = document.getElementById('settingOfferText').value.trim();
 
             const settingsDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'global_config');
             await setDoc(settingsDocRef, {
@@ -1997,10 +2402,14 @@
                 usdRate,
                 shippingPerItem,
                 baseProfit,
+                metaPixelId,
+                gaId,
+                offerActive,
+                offerText,
                 updatedAt: Date.now()
             });
 
-            showToast("تم حفظ الإعدادات وكلمة المرور بـ Cloud Firestore", "success");
+            showToast("تم حفظ الإعدادات وقواعد التتبع بـ Cloud Firestore بنجاح", "success");
         };
 
         function showToast(message, type = 'info') {
@@ -2065,7 +2474,7 @@
             document.getElementById('mobileMenu').classList.toggle('hidden');
         };
 
-        // Initialize App Auth and Firestore on Window Load
+        // On Load Init
         window.addEventListener('load', () => {
             initAuthAndStore();
             checkCustomerAuthState();
